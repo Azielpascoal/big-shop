@@ -18,16 +18,15 @@ const dynamicStyles = (appStyles, colorScheme) => {
     title: {
       fontSize: 30,
       fontWeight: 'bold',
-      color: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
-      marginTop: 25,
-      marginBottom: 50,
+      color: appStyles.colorSet[colorScheme].mainTextColor,
+      marginBottom: 25,
       alignSelf: 'stretch',
       textAlign: 'left',
       marginLeft: 35,
     },
     sendContainer: {
-      width: '70%',
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      width: '80%',
+      backgroundColor: appStyles.colorSet[colorScheme].mainTextColor,
       borderRadius: 25,
       padding: 10,
       marginTop: 30,
@@ -35,6 +34,18 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     sendText: {
       color: '#ffffff',
+    },
+    logo: {
+      width: 300,
+      height: 300,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: -50,
+    },
+    logoImage: {
+      width: '100%',
+      height: '100%',
+      resizeMode: 'contain',
     },
     InputContainer: {
       height: 42,
@@ -112,9 +123,10 @@ const dynamicStyles = (appStyles, colorScheme) => {
       borderColor: '#000',
     },
     orTextStyle: {
-      marginTop: 40,
+      marginTop: 10,
       marginBottom: 10,
       alignSelf: 'center',
+      textAlign: 'left',
       color: appStyles.colorSet[colorScheme].mainTextColor,
     },
     facebookContainer: {

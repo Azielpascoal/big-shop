@@ -165,7 +165,17 @@ const LoginScreen = (props) => {
             source={appStyles.iconSet.backArrow}
           />
         </TouchableOpacity>
-        <Text style={styles.title}>{IMLocalized('Sign In')}</Text>
+        <View style={styles.logo}>
+          <Image
+            style={styles.logoImage}
+            source={
+              props.delayedMode
+                ? appStyles.iconSet.delayedLogo
+                : appStyles.undrawImageSet.sampleImage
+            }
+          />
+        </View>
+        <Text style={styles.title}>{IMLocalized('Login')}</Text>
         <TextInput
           style={styles.InputContainer}
           placeholder={IMLocalized('E-mail')}
@@ -199,26 +209,6 @@ const LoginScreen = (props) => {
           onPress={() => onPressLogin()}>
           {IMLocalized('Log In')}
         </Button>
-        <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
-        <Button
-          containerStyle={styles.facebookContainer}
-          style={styles.facebookText}
-          onPress={() => onFBButtonPress()}>
-          {IMLocalized('Login With Facebook')}
-        </Button>
-        <IMGoogleSignInButton
-          containerStyle={styles.googleButtonStyle}
-          onPress={onGoogleButtonPress}
-        />
-        {appleAuth.isSupported && (
-          <AppleButton
-            cornerRadius={25}
-            style={styles.appleButtonContainer}
-            buttonStyle={appStyles.appleButtonStyle[colorScheme]}
-            buttonType={AppleButton.Type.SIGN_IN}
-            onPress={() => onAppleButtonPress()}
-          />
-        )}
         {appConfig.isSMSAuthEnabled && (
           <Button
             containerStyle={styles.phoneNumberContainer}

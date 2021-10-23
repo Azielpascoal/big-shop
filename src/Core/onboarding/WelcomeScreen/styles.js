@@ -18,8 +18,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       marginTop: -100,
     },
     logoImage: {
-      width: '100%',
-      height: '100%',
+      width: '50%',
+      height: '50%',
       resizeMode: 'contain',
       tintColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
     },
@@ -70,7 +70,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       position: 'absolute',
       top: 36,
       right: 24,
-    }
+    },
   });
 };
 

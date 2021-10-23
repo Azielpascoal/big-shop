@@ -7,7 +7,7 @@ const WINDOW_HEIGHT = Dimensions.get('window').height;
 
 const lightColorSet = {
   mainThemeBackgroundColor: '#ffffff',
-  mainThemeForegroundColor: '#4991ec',
+  mainThemeForegroundColor: '#4852D9',
   mainTextColor: '#151723',
   mainSubtextColor: '#7e7e7e',
   hairlineColor: '#e0e0e0',
@@ -100,6 +100,10 @@ const imageSet = {
   notification: require('../assets/images/notification.png'),
   photo: require('../assets/images/photo.png'),
   pin: require('../assets/images/pin.png'),
+};
+
+const undrawImageSet = {
+  sampleImage: require('../assets/undraw/sample2.png'),
 };
 
 const iconSet = {
@@ -236,6 +240,7 @@ const appleButtonStyle = {
 
 const StyleDict = {
   imageSet,
+  undrawImageSet,
   iconSet,
   fontFamily,
   colorSet,

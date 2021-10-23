@@ -20,9 +20,7 @@ import {
 } from 'react-native-confirmation-code-field';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useColorScheme } from 'react-native-appearance';
-import appleAuth, {
-  AppleButton,
-} from '@invertase/react-native-apple-authentication';
+
 import TNActivityIndicator from '../../truly-native/TNActivityIndicator';
 import TNProfilePictureSelector from '../../truly-native/TNProfilePictureSelector/TNProfilePictureSelector';
 import CountriesModalPicker from '../../truly-native/CountriesModalPicker/CountriesModalPicker';
@@ -33,7 +31,6 @@ import { localizedErrorMessage } from '../utils/ErrorCode';
 import TermsOfUseView from '../components/TermsOfUseView';
 import { firebase } from '../../api/firebase/config';
 import dynamicStyles from './styles';
-import IMGoogleSignInButton from '../components/IMGoogleSignInButton/IMGoogleSignInButton';
 
 const codeInputCellCount = 6;
 
@@ -84,81 +81,6 @@ const SmsAuthenticationScreen = (props) => {
       setCountriesPickerData(phoneRef.current.getPickerData());
     }
   }, [phoneRef]);
-
-  const onFBButtonPress = () => {
-    setLoading(true);
-    authManager.loginOrSignUpWithFacebook(appConfig).then((response) => {
-      if (response?.user) {
-        const user = response.user;
-        props.setUserData({ user });
-        Keyboard.dismiss();
-        props.navigation.reset({
-          index: 0,
-          routes: [{ name: 'MainStack', params: { user: user } }],
-        });
-      } else {
-        setLoading(false);
-        Alert.alert(
-          '',
-          localizedErrorMessage(response.error),
-          [{ text: IMLocalized('OK') }],
-          {
-            cancelable: false,
-          },
-        );
-      }
-    });
-  };
-
-  const onGoogleButtonPress = () => {
-    setLoading(true);
-    authManager.loginOrSignUpWithGoogle(appConfig).then((response) => {
-      if (response?.user) {
-        const user = response.user;
-        props.setUserData({ user });
-        Keyboard.dismiss();
-        props.navigation.reset({
-          index: 0,
-          routes: [{ name: 'MainStack', params: { user: user } }],
-        });
-      } else {
-        setLoading(false);
-        Alert.alert(
-          '',
-          localizedErrorMessage(response.error),
-          [{ text: IMLocalized('OK') }],
-          {
-            cancelable: false,
-          },
-        );
-      }
-    });
-  };
-
-  const onAppleButtonPress = async () => {
-    setLoading(true);
-    authManager.loginOrSignUpWithApple(appConfig).then((response) => {
-      if (response?.user) {
-        const user = response.user;
-        props.setUserData({ user });
-        Keyboard.dismiss();
-        props.navigation.reset({
-          index: 0,
-          routes: [{ name: 'MainStack', params: { user: user } }],
-        });
-      } else {
-        setLoading(false);
-        Alert.alert(
-          '',
-          localizedErrorMessage(response.error),
-          [{ text: IMLocalized('OK') }],
-          {
-            cancelable: false,
-          },
-        );
-      }
-    });
-  };
 
   const signInWithPhoneNumber = (userValidPhoneNumber) => {
     setLoading(true);
@@ -461,29 +383,22 @@ const SmsAuthenticationScreen = (props) => {
 
   const renderAsLoginState = () => {
     return (
-      <>
-        <Text style={styles.title}>{IMLocalized('Sign In')}</Text>
-        {isPhoneVisible ? renderPhoneInput() : renderCodeInput()}
-        <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
-        <Button
-          containerStyle={styles.facebookContainer}
-          style={styles.facebookText}
-          onPress={() => onFBButtonPress()}>
-          {IMLocalized('Login With Facebook')}
-        </Button>
-        <IMGoogleSignInButton
-          containerStyle={styles.googleButtonStyle}
-          onPress={onGoogleButtonPress}
-        />
-        {appleAuth.isSupported && (
-          <AppleButton
-            cornerRadius={25}
-            style={styles.appleButtonContainer}
-            buttonStyle={appStyles.appleButtonStyle[colorScheme]}
-            buttonType={AppleButton.Type.SIGN_IN}
-            onPress={() => onAppleButtonPress()}
+      <View style={styles.container}>
+        <View style={styles.logo}>
+          <Image
+            style={styles.logoImage}
+            source={
+              props.delayedMode
+                ? appStyles.iconSet.delayedLogo
+                : appStyles.undrawImageSet.sampleImage
+            }
           />
-        )}
+        </View>
+        <Text style={styles.title}>{IMLocalized('Your phone number')}</Text>
+        <Text style={styles.orTextStyle}>
+          {IMLocalized('Input you phone number to continue')}
+        </Text>
+        {isPhoneVisible ? renderPhoneInput() : renderCodeInput()}
         <Button
           containerStyle={styles.signWithEmailContainer}
           onPress={() =>
@@ -495,7 +410,7 @@ const SmsAuthenticationScreen = (props) => {
           }>
           {IMLocalized('Sign in with E-mail')}
         </Button>
-      </>
+      </View>
     );
   };
 
