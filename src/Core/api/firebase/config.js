@@ -14,13 +14,13 @@ import '@firebase/auth';
 import '@firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAOWHBpPhKoNhcGFKHH_Q_0AtL2gV-imgQ',
-  authDomain: 'production-a9404.firebaseapp.com',
-  databaseURL: 'https://production-a9404.firebaseio.com',
-  projectId: 'production-a9404',
-  storageBucket: 'production-a9404.appspot.com',
-  messagingSenderId: '525472070731',
-  appId: '1:525472070731:web:ee873bd62c0deb7eba61ce',
+  apiKey: 'AIzaSyCkGFh71eIodOiP7bGESNpznFVpVL-8rIY',
+  authDomain: 'chatngift-ac272.firebaseapp.com',
+  projectId: 'chatngift-ac272',
+  storageBucket: 'chatngift-ac272.appspot.com',
+  messagingSenderId: '162776616350',
+  appId: '1:162776616350:web:e054bf8e6dfed392d8da8f',
+  measurementId: 'G-F8QZ5ZBJZ6',
 };
 
 if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
