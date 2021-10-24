@@ -27,15 +27,13 @@ const dynamicStyles = (appStyles, colorScheme) => {
       marginLeft: 30,
     },
     logo: {
-      width: 300,
-      height: 300,
       justifyContent: 'center',
       alignItems: 'center',
       marginTop: -40,
     },
     logoImage: {
-      width: '100%',
-      height: '100%',
+      width: 300,
+      height: 300,
       resizeMode: 'contain',
     },
     loginContainer: {

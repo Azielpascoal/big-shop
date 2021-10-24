@@ -36,15 +36,13 @@ const dynamicStyles = (appStyles, colorScheme) => {
       color: '#ffffff',
     },
     logo: {
-      width: 300,
-      height: 300,
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: -50,
+      marginTop: -40,
     },
     logoImage: {
-      width: '100%',
-      height: '100%',
+      width: 300,
+      height: 300,
       resizeMode: 'contain',
     },
     InputContainer: {

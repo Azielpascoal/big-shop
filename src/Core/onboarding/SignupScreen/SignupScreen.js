@@ -222,15 +222,21 @@ const SignupScreen = (props) => {
             source={appStyles.iconSet.backArrow}
           />
         </TouchableOpacity>
-        <Text style={styles.title}>{IMLocalized('Create new account')}</Text>
-        <TNProfilePictureSelector
-          setProfilePictureFile={setProfilePictureFile}
-          appStyles={appStyles}
-        />
+        <View style={styles.logo}>
+          <Image
+            style={styles.logoImage}
+            source={
+              props.delayedMode
+                ? appStyles.iconSet.delayedLogo
+                : appStyles.undrawImageSet.sampleImage
+            }
+          />
+        </View>
+        <Text style={styles.title}>{IMLocalized('Sign up with E-mail')}</Text>
+
         {renderSignupWithEmail()}
         {appConfig.isSMSAuthEnabled && (
           <>
-            <Text style={styles.orTextStyle}>{IMLocalized('OR')}</Text>
             <Button
               containerStyle={styles.PhoneNumberContainer}
               onPress={() =>

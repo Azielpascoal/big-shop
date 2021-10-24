@@ -177,7 +177,7 @@ const loadingModal = {
 };
 
 const sizeSet = {
-  buttonWidth: '70%',
+  buttonWidth: '80%',
   inputWidth: '80%',
   radius: 25,
 };

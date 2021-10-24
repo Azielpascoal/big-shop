@@ -358,14 +358,19 @@ const SmsAuthenticationScreen = (props) => {
   const renderAsSignUpState = () => {
     return (
       <>
-        <Text style={styles.title}>{IMLocalized('Create new account')}</Text>
-        <TNProfilePictureSelector
-          setProfilePictureFile={setProfilePictureFile}
-          appStyles={appStyles}
-        />
+        <View style={styles.logo}>
+          <Image
+            style={styles.logoImage}
+            source={
+              props.delayedMode
+                ? appStyles.iconSet.delayedLogo
+                : appStyles.undrawImageSet.sampleImage
+            }
+          />
+        </View>
+        <Text style={styles.title}>{IMLocalized('Sign up with phone')}</Text>
         {appConfig.smsSignupFields.map(renderInputField)}
         {isPhoneVisible ? renderPhoneInput() : renderCodeInput()}
-        <Text style={styles.orTextStyle}> {IMLocalized('OR')}</Text>
         <Button
           containerStyle={styles.signWithEmailContainer}
           onPress={() =>

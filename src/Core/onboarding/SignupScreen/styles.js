@@ -14,10 +14,20 @@ const dynamicStyles = (appStyles, colorScheme) => {
       justifyContent: 'center',
       backgroundColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
     },
+    logo: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: -50,
+    },
+    logoImage: {
+      resizeMode: 'contain',
+      width: 300,
+      height: 300,
+    },
     title: {
       fontSize: 30,
       fontWeight: 'bold',
-      color: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      color: appStyles.colorSet[colorScheme].headerTintColor,
       marginTop: 25,
       marginBottom: 30,
       alignSelf: 'stretch',
@@ -66,7 +76,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
     signupContainer: {
       alignSelf: 'center',
       width: appStyles.sizeSet.buttonWidth,
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      backgroundColor: appStyles.colorSet[colorScheme].headerTintColor,
       borderRadius: appStyles.sizeSet.radius,
       padding: 10,
       marginTop: 50,
