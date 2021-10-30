@@ -186,7 +186,7 @@ const SignupScreen = (props) => {
         key={index?.toString()}
         style={styles.InputContainer}
         placeholder={field.placeholder}
-        placeholderTextColor="#aaaaaa"
+        placeholderTextColor="#444"
         secureTextEntry={field.secureTextEntry}
         onChangeText={(text) => onChangeInputFields(text, field.key)}
         value={inputFields[field.key]}
@@ -228,7 +228,7 @@ const SignupScreen = (props) => {
             source={
               props.delayedMode
                 ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.sampleImage
+                : appStyles.undrawImageSet.emailsignup
             }
           />
         </View>

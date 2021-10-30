@@ -171,7 +171,7 @@ const LoginScreen = (props) => {
             source={
               props.delayedMode
                 ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.sampleImage
+                : appStyles.undrawImageSet.login
             }
           />
         </View>

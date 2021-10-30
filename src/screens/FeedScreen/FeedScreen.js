@@ -464,7 +464,7 @@ const FeedScreen = (props) => {
       },
     ];
     props.navigation.setOptions({
-      headerTitle: IMLocalized('Instamobile'),
+      headerTitle: IMLocalized('Chat n Gift'),
       headerLeft: () => (
         <TNTouchableIcon
           imageStyle={{ tintColor: currentTheme.fontColor }}

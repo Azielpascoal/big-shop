@@ -29,7 +29,8 @@ const MainStackNavigator = () => {
       <Stack.Screen
         options={{ headerShown: false }}
         name="NavStack"
-        component={Platform.OS === 'ios' ? BottomTabNavigator : DrawerNavigator}
+        component={BottomTabNavigator}
+        //component={Platform.OS === 'ios' ? BottomTabNavigator : DrawerNavigator}
       />
       <Stack.Screen
         options={{ headerBackTitle: IMLocalized('Chat') }}

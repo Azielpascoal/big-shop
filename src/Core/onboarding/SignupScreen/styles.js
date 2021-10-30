@@ -58,9 +58,9 @@ const dynamicStyles = (appStyles, colorScheme) => {
     InputContainer: {
       height: 42,
       borderWidth: 1,
-      borderColor: appStyles.colorSet[colorScheme].grey3,
+      borderColor: appStyles.colorSet[colorScheme].grey6,
       backgroundColor: modedColor(
-        appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+        appStyles.colorSet[colorScheme].grey0,
         TNColor('#e0e0e0'),
       ),
       paddingLeft: 20,
@@ -69,7 +69,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       alignSelf: 'center',
       marginTop: 20,
       alignItems: 'center',
-      borderRadius: 25,
+      borderRadius: 10,
       textAlign: I18nManager.isRTL ? 'right' : 'left',
     },
 

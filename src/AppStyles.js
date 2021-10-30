@@ -104,10 +104,13 @@ const imageSet = {
 
 const undrawImageSet = {
   sampleImage: require('../assets/undraw/sample2.png'),
+  login: require('../assets/undraw/login.png'),
+  phonesignup: require('../assets/undraw/phonesignup.png'),
+  emailsignup: require('../assets/undraw/emailsignup.png'),
 };
 
 const iconSet = {
-  logo: require('../assets/images/app-logo.png'),
+  logo: require('../assets/images/chlogo.jpeg'),
   userAvatar: require('./CoreAssets/default-avatar.jpg'),
   backArrow: require('./CoreAssets/arrow-back-icon.png'),
   menuHamburger: require('../assets/icons/menu-hamburger.png'),
@@ -223,7 +226,7 @@ const styleSet = {
   },
   backArrowStyle: {
     resizeMode: 'contain',
-    tintColor: '#4991ec',
+    tintColor: '#000',
     width: 25,
     height: 25,
     marginTop: Platform.OS === 'ios' ? 50 : 20,

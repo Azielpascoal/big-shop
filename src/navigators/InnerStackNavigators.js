@@ -33,7 +33,7 @@ const InnerFeedNavigator = () => {
   return (
     <Stack.Navigator headerMode="float" initialRouteName="Feed">
       <Stack.Screen
-        options={{ title: 'Instamobile' }}
+        options={{ title: 'Chat n Gift' }}
         name="Feed"
         component={FeedScreen}
       />

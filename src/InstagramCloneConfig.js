@@ -13,49 +13,35 @@ const InstagramCloneConfig = {
   webClientId:
     '525472070731-mg8m3q8v9vp1port7nkbq9le65hp917t.apps.googleusercontent.com',
   onboardingConfig: {
-    welcomeTitle: IMLocalized('Welcome to Instamobile'),
-    welcomeCaption: IMLocalized(
-      'Use this codebase to build your own Instagram clone in minutes.',
-    ),
+    // welcomeTitle: IMLocalized('Chat n Gift'),
+    // welcomeCaption: IMLocalized('Your space for all your online social life'),
     walkthroughScreens: [
       {
         icon: require('../assets/images/instagram.png'),
-        title: IMLocalized('Share Photos & Videos'),
+        title: IMLocalized('Be Fashion'),
         description: IMLocalized(
-          'Have fun with your friends by posting cool photos and videos.',
+          'Your favourites brands at the yout fingertips',
         ),
       },
       {
         icon: require('../assets/images/photo.png'),
-        title: IMLocalized('Stories'),
-        description: IMLocalized('Share stories that disappear after 24h.'),
+        title: IMLocalized('Wish List'),
+        description: IMLocalized(
+          'Create a wish list from our shops to share with your friends.',
+        ),
       },
       {
         icon: require('../assets/images/chat.png'),
-        title: IMLocalized('Messages'),
+        title: IMLocalized('Post your pictures'),
         description: IMLocalized(
-          'Communicate with your friends via private messages.',
+          'Share your adventurous and interact with friends.',
         ),
       },
       {
         icon: require('../assets/icons/friends-unfilled.png'),
-        title: IMLocalized('Group Chats'),
+        title: IMLocalized('Live Stream'),
         description: IMLocalized(
-          'Stay in touch your gang in private group chats.',
-        ),
-      },
-      {
-        icon: require('../assets/images/pin.png'),
-        title: IMLocalized('Checkins'),
-        description: IMLocalized(
-          'Check in when posting to share your location with friends.',
-        ),
-      },
-      {
-        icon: require('../assets/images/notification.png'),
-        title: IMLocalized('Get Notified'),
-        description: IMLocalized(
-          'Receive notifications when you get new messages and likes.',
+          'Watch your favourites shows live at the conform of your home.',
         ),
       },
     ],

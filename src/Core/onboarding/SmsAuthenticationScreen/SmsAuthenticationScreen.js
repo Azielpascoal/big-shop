@@ -364,7 +364,7 @@ const SmsAuthenticationScreen = (props) => {
             source={
               props.delayedMode
                 ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.sampleImage
+                : appStyles.undrawImageSet.phonesignup
             }
           />
         </View>
@@ -395,7 +395,7 @@ const SmsAuthenticationScreen = (props) => {
             source={
               props.delayedMode
                 ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.sampleImage
+                : appStyles.undrawImageSet.login
             }
           />
         </View>
