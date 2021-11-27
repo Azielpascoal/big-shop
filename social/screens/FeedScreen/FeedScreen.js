@@ -29,7 +29,7 @@ import { groupBy } from '../../Core/helpers/collections';
 import AppStyles from '../../AppStyles';
 import styles from './styles';
 import { IMLocalized } from '../../Core/localization/IMLocalization';
-import { TNTouchableIcon } from '../../Core/truly-native';
+import { TNTouchableIcon, TNStoryItem } from '../../Core/truly-native';
 import { reportingManager } from '../../Core/user-reporting';
 import { Appearance } from 'react-native-appearance';
 
@@ -466,14 +466,12 @@ const FeedScreen = (props) => {
     props.navigation.setOptions({
       headerTitle: IMLocalized('Chat n Gift'),
       headerLeft: () => (
-        <TNTouchableIcon
-          imageStyle={{ tintColor: currentTheme.fontColor }}
-          iconSource={
-            Platform.OS === 'ios'
-              ? AppStyles.iconSet.camera
-              : AppStyles.iconSet.menuHamburger
-          }
-          onPress={Platform.OS === 'ios' ? toggleCamera : openDrawer}
+        <TNStoryItem
+          imageStyle={styles.userImage}
+          imageContainerStyle={styles.userImageContainer}
+          containerStyle={styles.userImageMainContainer}
+          item={currentUser}
+          onPress={() => props.navigation.navigate('Profile')}
           appStyles={AppStyles}
         />
       ),
@@ -486,11 +484,10 @@ const FeedScreen = (props) => {
                   style={[
                     {
                       tintColor: currentTheme.fontColor,
-                      marginRight: -5,
                     },
                     styles.navIcon,
                   ]}
-                  source={AppStyles.iconSet.camera}
+                  source={AppStyles.iconSet.cameraFilled}
                 />
               </MenuTrigger>
               <MenuOptions
@@ -518,9 +515,16 @@ const FeedScreen = (props) => {
           )}
           <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.inscription}
-            onPress={toggleMediaComposer}
-            // onPress={() => navigation.navigate('CreatePost')}
+            iconSource={AppStyles.iconSet.bell}
+            //onPress={onChatPress}
+            onPress={() => props.navigation.navigate('FeedNotification')}
+            appStyles={AppStyles}
+          />
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.commentFilled}
+            //onPress={onChatPress}
+            onPress={() => props.navigation.navigate('Messaging')}
             appStyles={AppStyles}
           />
         </View>

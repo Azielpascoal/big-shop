@@ -7,6 +7,9 @@ import {
   InnerDiscoverNavigator,
   InnerProfileNavigator,
 } from './InnerStackNavigators';
+import CreatePostScreen from '../screens/CreatePostScreen/CreatePostScreen';
+import GiftsScreen from '../screens/GiftsScreen/GiftsScreen';
+import LiveScreen from '../screens/LiveScreen/LiveScreen';
 //shop imports
 import shopNavigator from './shopStacknavigator';
 
@@ -31,14 +34,16 @@ const BottomTabNavigator = () => {
       )}
       initialRouteName="Feed">
       <BottomTab.Screen name="Feed" component={InnerFeedNavigator} />
-      <BottomTab.Screen name="Discover" component={InnerDiscoverNavigator} />
-      <BottomTab.Screen name="Chat" component={InnerChatSearchNavigator} />
-      <BottomTab.Screen
+      <BottomTab.Screen name="Live" component={LiveScreen} />
+      {/* <BottomTab.Screen name="Discover" component={InnerDiscoverNavigator} /> */}
+      {/* <BottomTab.Screen name="Chat" component={InnerChatSearchNavigator} /> */}
+      <BottomTab.Screen name="CreatePost" component={CreatePostScreen} />
+      <BottomTab.Screen name="ShopHome" component={shopNavigator} />
+      {/* <BottomTab.Screen
         name="Friends"
         component={InnerFriendsSearchNavigator}
-      />
-      {/* <BottomTab.Screen name="Profile" component={InnerProfileNavigator} /> */}
-      <BottomTab.Screen name="ShopHome" component={shopNavigator} />
+      /> */}
+      <BottomTab.Screen name="Gifts" component={GiftsScreen} />
     </BottomTab.Navigator>
   );
 };

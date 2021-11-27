@@ -38,8 +38,16 @@ const InnerFeedNavigator = () => {
         component={FeedScreen}
       />
       <Stack.Screen name="FeedDetailPost" component={DetailPostScreen} />
-      <Stack.Screen name="CreatePost" component={CreatePostScreen} />
-      <Stack.Screen name="FeedProfile" component={ProfileScreen} />
+      <Stack.Screen
+        name="Messaging"
+        component={InnerChatSearchNavigator}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={InnerProfileNavigator}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen name="FeedNotification" component={IMNotificationScreen} />
       <Stack.Screen
         name="FeedProfileSettings"

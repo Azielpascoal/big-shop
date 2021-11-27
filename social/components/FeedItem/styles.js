@@ -10,6 +10,7 @@ const dynamicStyles = (colorScheme) => {
       // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
       width: '100%',
       alignSelf: 'center',
+
       // marginVertical: 3,
       backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
     },

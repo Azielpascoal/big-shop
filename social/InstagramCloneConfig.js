@@ -49,7 +49,7 @@ const InstagramCloneConfig = {
   tabIcons: {
     Feed: {
       focus: AppStyles.iconSet.homefilled,
-      unFocus: AppStyles.iconSet.homeUnfilled,
+      unFocus: AppStyles.iconSet.homefilled,
     },
     Discover: {
       focus: AppStyles.iconSet.search,
@@ -70,6 +70,18 @@ const InstagramCloneConfig = {
     ShopHome: {
       focus: AppStyles.iconSet.shoppingBagFilled,
       unFocus: AppStyles.iconSet.shoppingBagFilled,
+    },
+    CreatePost: {
+      focus: AppStyles.iconSet.add,
+      unFocus: AppStyles.iconSet.add,
+    },
+    Gifts: {
+      focus: AppStyles.iconSet.giftbox,
+      unFocus: AppStyles.iconSet.giftbox,
+    },
+    Live: {
+      focus: AppStyles.iconSet.live,
+      unFocus: AppStyles.iconSet.live,
     },
   },
   tosLink: 'https://www.instamobile.io/eula-instachatty/',

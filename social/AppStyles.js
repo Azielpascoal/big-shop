@@ -111,6 +111,7 @@ const undrawImageSet = {
 
 const iconSet = {
   logo: require('../assets/images/chlogo.jpeg'),
+  add: require('../assets/icons/add.png'),
   userAvatar: require('./CoreAssets/default-avatar.jpg'),
   backArrow: require('./CoreAssets/arrow-back-icon.png'),
   menuHamburger: require('../assets/icons/menu-hamburger.png'),
@@ -149,6 +150,8 @@ const iconSet = {
   soundMute: require('../assets/icons/sound_mute.png'),
   videoCamera: require('../assets/icons/video-camera.png'),
   libraryLandscape: require('../assets/icons/library-landscape.png'),
+  giftbox: require('../assets/icons/giftbox.png'),
+  live: require('../assets/icons/live.png'),
 };
 
 const fontFamily = {
