@@ -471,7 +471,7 @@ const FeedScreen = (props) => {
           imageContainerStyle={styles.userImageContainer}
           containerStyle={styles.userImageMainContainer}
           item={currentUser}
-          onPress={() => props.navigation.navigate('Profile')}
+          onPress={() => props.navigation.navigate('UserProfile')}
           appStyles={AppStyles}
         />
       ),

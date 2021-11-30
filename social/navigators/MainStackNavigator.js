@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import DrawerNavigator from './DrawerNavigator';
+import DrawerNavigator from '../../shop/navigators/DrawerStackNavigator';
 import BottomTabNavigator from './BottomTabNavigator';
 import { IMChatScreen } from '../Core/chat';
 import React from 'react';
@@ -33,6 +33,7 @@ const MainStackNavigator = () => {
         component={BottomTabNavigator}
         //component={Platform.OS === 'ios' ? BottomTabNavigator : DrawerNavigator}
       />
+
       <Stack.Screen
         options={{ headerBackTitle: IMLocalized('Chat') }}
         name="PersonalChat"

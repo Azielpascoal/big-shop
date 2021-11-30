@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { FlatList, View, ActivityIndicator, Dimensions } from 'react-native';
-import { useColorScheme } from 'react-native-appearance';
+import { useColorScheme, Appearance } from 'react-native-appearance';
 import { Viewport } from '@skele/components';
 import FeedItem from '../../FeedItem/FeedItem';
 import PropTypes from 'prop-types';
@@ -12,6 +12,7 @@ import { TNEmptyStateView } from '../../../Core/truly-native';
 import { IMLocalized } from '../../../Core/localization/IMLocalization';
 import MediaComposer from '../../../instagram-composer';
 import AppStyles from '../../../AppStyles';
+import { TNTouchableIcon } from '../../../Core/truly-native';
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -118,19 +119,37 @@ function Feed(props) {
     );
   };
 
+  // stories state manager
+  const [isShowingStories, setIsShowingStories] = useState(false);
+
   const renderListHeader = () => {
+    let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
+    let COLOR_SCHEME = Appearance.getColorScheme();
     if (displayStories) {
       return (
-        <FullStories
-          ref={fullStoryRef}
-          user={user}
-          shouldEmptyStories={shouldEmptyStories}
-          isStoryUpdating={isStoryUpdating}
-          onUserItemPress={onUserItemPress}
-          stories={stories}
-          userStories={userStories}
-          appStyles={AppStyles}
-        />
+        <View style={styles.storiesContainer}>
+          <TNTouchableIcon
+            iconSource={
+              isShowingStories
+                ? AppStyles.iconSet.commentFilled
+                : AppStyles.iconSet.commentUnfilled
+            }
+            onPress={() => setIsShowingStories(!isShowingStories)}
+            appStyles={AppStyles}
+          />
+          {isShowingStories && (
+            <FullStories
+              ref={fullStoryRef}
+              user={user}
+              shouldEmptyStories={shouldEmptyStories}
+              isStoryUpdating={isStoryUpdating}
+              onUserItemPress={onUserItemPress}
+              stories={stories}
+              userStories={userStories}
+              appStyles={AppStyles}
+            />
+          )}
+        </View>
       );
     }
     return null;

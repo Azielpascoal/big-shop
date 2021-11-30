@@ -6,7 +6,7 @@ import styles from './styles';
 const GiftsScreen = () => {
   return (
     <View style={styles.mainContainer}>
-      <Text>Gifts Screen</Text>
+      <Text>Live Screen</Text>
     </View>
   );
 };

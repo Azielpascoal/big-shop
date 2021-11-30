@@ -10,6 +10,9 @@ const dynamicStyles = (colorScheme) => {
     emptyStateView: {
       marginTop: 80,
     },
+    storiesContainer: {
+      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+    },
   });
 };
 
