@@ -13,6 +13,9 @@ const dynamicStyles = (colorScheme) => {
     storiesContainer: {
       backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
     },
+    iconstories: {
+      marginLeft: '75%',
+    },
   });
 };
 

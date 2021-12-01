@@ -152,6 +152,8 @@ const iconSet = {
   libraryLandscape: require('../assets/icons/library-landscape.png'),
   giftbox: require('../assets/icons/giftbox.png'),
   live: require('../assets/icons/live.png'),
+  arrowUp: require('../assets/icons/arrowUp.png'),
+  arrowDown: require('../assets/icons/arrowDown.png'),
 };
 
 const fontFamily = {
