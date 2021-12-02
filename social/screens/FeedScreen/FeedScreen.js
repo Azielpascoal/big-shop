@@ -515,18 +515,26 @@ const FeedScreen = (props) => {
           )}
           <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.chat}
+            //onPress={onChatPress}
+            onPress={() => props.navigation.navigate('Messaging')}
+            appStyles={AppStyles}
+          />
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
             iconSource={AppStyles.iconSet.bell}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}
             appStyles={AppStyles}
           />
-          <TNTouchableIcon
+
+          {/* <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.commentFilled}
+            iconSource={AppStyles.iconSet.giftbox}
             //onPress={onChatPress}
-            onPress={() => props.navigation.navigate('Messaging')}
+            onPress={() => props.navigation.navigate('FeedNotification')}
             appStyles={AppStyles}
-          />
+          /> */}
         </View>
       ),
       headerStyle: {

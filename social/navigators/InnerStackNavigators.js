@@ -33,7 +33,9 @@ const InnerFeedNavigator = () => {
   return (
     <Stack.Navigator headerMode="float" initialRouteName="Feed">
       <Stack.Screen
-        options={{ title: 'Chat n Gift' }}
+        options={{
+          title: 'Chat n Gift',
+        }}
         name="Feed"
         component={FeedScreen}
       />

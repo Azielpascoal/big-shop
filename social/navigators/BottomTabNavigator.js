@@ -7,6 +7,7 @@ import {
   InnerDiscoverNavigator,
   InnerProfileNavigator,
 } from './InnerStackNavigators';
+import { View, Image } from 'react-native';
 import CreatePostScreen from '../screens/CreatePostScreen/CreatePostScreen';
 import GiftsScreen from '../screens/GiftsScreen/GiftsScreen';
 import LiveScreen from '../screens/LiveScreen/LiveScreen';
@@ -23,27 +24,161 @@ const BottomTab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   return (
     <BottomTab.Navigator
-      tabBar={({ state, route, navigation }) => (
-        <TabBarBuilder
-          tabIcons={InstagramCloneConfig.tabIcons}
-          appStyles={AppStyles}
-          route={route}
-          state={state}
-          navigation={navigation}
-        />
-      )}
+      tabBarOptions={{
+        showLabel: false,
+        style: {
+          elevation: 0,
+          backgroundColor: '#ffffff',
+          height: 60,
+          alignItems: 'center',
+        },
+      }}
+      // tabBar={({ state, route, navigation }) => (
+      //   <TabBarBuilder
+      //     tabIcons={InstagramCloneConfig.tabIcons}
+      //     appStyles={AppStyles}
+      //     route={route}
+      //     state={state}
+      //     navigation={navigation}
+      //   />
+      // )}
       initialRouteName="Feed">
-      <BottomTab.Screen name="Feed" component={InnerFeedNavigator} />
-      <BottomTab.Screen name="Live" component={LiveScreen} />
+      <BottomTab.Screen
+        name="Feed"
+        component={InnerFeedNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 8,
+                backgroundColor: focused ? '#4852D91A' : '#ffffff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                source={AppStyles.iconSet.homefilled}
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? '#4852D9' : '#999999',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="Live"
+        component={LiveScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 8,
+                backgroundColor: focused ? '#4852D91A' : '#ffffff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                source={AppStyles.iconSet.live}
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? '#4852D9' : '#999999',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
       {/* <BottomTab.Screen name="Discover" component={InnerDiscoverNavigator} /> */}
       {/* <BottomTab.Screen name="Chat" component={InnerChatSearchNavigator} /> */}
-      <BottomTab.Screen name="CreatePost" component={CreatePostScreen} />
-      <BottomTab.Screen name="ShopHome" component={shopNavigator} />
+      <BottomTab.Screen
+        name="CreatePost"
+        component={CreatePostScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                backgroundColor: focused ? '#4852D91A' : '#999999',
+                borderRadius: 50,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                source={AppStyles.iconSet.plus}
+                style={{
+                  width: 15,
+                  height: 15,
+                  tintColor: focused ? '#4852D9' : '#ffffff',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
+      <BottomTab.Screen
+        name="ShopHome"
+        component={shopNavigator}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 8,
+                backgroundColor: focused ? '#4852D91A' : '#ffffff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                source={AppStyles.iconSet.shoppingBagFilled}
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? '#4852D9' : '#999999',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
       {/* <BottomTab.Screen
         name="Friends"
         component={InnerFriendsSearchNavigator}
       /> */}
-      <BottomTab.Screen name="Gifts" component={GiftsScreen} />
+      <BottomTab.Screen
+        name="Gifts"
+        component={GiftsScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: 8,
+                backgroundColor: focused ? '#4852D91A' : '#ffffff',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Image
+                source={AppStyles.iconSet.giftbox}
+                style={{
+                  width: 25,
+                  height: 25,
+                  tintColor: focused ? '#4852D9' : '#999999',
+                }}
+              />
+            </View>
+          ),
+        }}
+      />
     </BottomTab.Navigator>
   );
 };
