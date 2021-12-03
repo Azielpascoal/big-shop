@@ -10,12 +10,19 @@ const dynamicStyles = (colorScheme) => {
       // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
       width: '100%',
       alignSelf: 'center',
+      height: 600,
+      borderRadius: 25,
+      marginTop: 10,
+      marginBottom: 10,
+      position: 'relative',
 
       // marginVertical: 3,
-      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      backgroundColor: '#ddd',
     },
     headerContainer: {
       flexDirection: 'row',
+      position: 'absolute',
+      width: '100%',
     },
     userImage: {
       width: imageWidth,
@@ -47,8 +54,8 @@ const dynamicStyles = (colorScheme) => {
     },
     title: {
       color: AppStyles.colorSet[colorScheme].mainTextColor,
-      fontSize: 14,
-      fontWeight: '600',
+      fontSize: 12,
+      fontWeight: 'bold',
     },
     subtitle: {
       color: AppStyles.colorSet[colorScheme].mainSubtextColor,
@@ -58,8 +65,8 @@ const dynamicStyles = (colorScheme) => {
       color: AppStyles.colorSet[colorScheme].mainTextColor,
       fontSize: 12,
       lineHeight: 18,
-      paddingBottom: 7,
-      paddingHorizontal: 12,
+      paddingHorizontal: 4,
+      paddingRight: 4,
     },
     moreText: {
       color: AppStyles.colorSet[colorScheme].mainThemeForegroundColor,
@@ -73,10 +80,10 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'flex-end',
     },
     moreIcon: {
-      height: 18,
-      width: 18,
-      tintColor: AppStyles.colorSet[colorScheme].mainSubtextColor,
-      margin: 0,
+      height: 25,
+      width: 25,
+      tintColor: AppStyles.colorSet[colorScheme].headerStyleColor,
+      marginRight: 10,
     },
     bodyTitleContainer: {
       marginHorizontal: 8,
@@ -135,6 +142,21 @@ const dynamicStyles = (colorScheme) => {
     },
     footerContainer: {
       flexDirection: 'row',
+      width: ' 94%',
+      alignSelf: 'center',
+      marginTop: 40,
+      position: 'absolute',
+      marginTop: '130%',
+    },
+    footerIconArea: {
+      width: 96,
+      height: 30,
+      backgroundColor: '#fff',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 10,
+      marginRight: 8,
     },
     footerIconContainer: {
       flexDirection: 'row',
@@ -144,8 +166,8 @@ const dynamicStyles = (colorScheme) => {
     },
     footerIcon: {
       margin: 3,
-      height: 25,
-      width: 25,
+      height: 20,
+      width: 20,
     },
     mediaVideoLoader: {
       position: 'absolute',

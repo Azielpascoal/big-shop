@@ -131,9 +131,10 @@ function Feed(props) {
           <TNTouchableIcon
             iconSource={
               isShowingStories
-                ? AppStyles.iconSet.commentFilled
-                : AppStyles.iconSet.commentUnfilled
+                ? AppStyles.iconSet.arrowDown
+                : AppStyles.iconSet.arrowUp
             }
+            containerStyle={styles.iconstories}
             onPress={() => setIsShowingStories(!isShowingStories)}
             appStyles={AppStyles}
           />
