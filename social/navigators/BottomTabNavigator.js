@@ -1,5 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { TNTouchableIcon, TNStoryItem } from '../../Core/truly-native';
 import {
   InnerFeedNavigator,
   InnerChatSearchNavigator,
@@ -104,21 +105,32 @@ const BottomTabNavigator = () => {
           tabBarIcon: ({ focused }) => (
             <View
               style={{
-                width: 40,
-                height: 40,
-                backgroundColor: focused ? '#4852D91A' : '#999999',
+                width: 70,
+                height: 70,
+                backgroundColor: 'linear-gradient(to top, #f32b60, #ff8f1f)',
                 borderRadius: 50,
                 alignItems: 'center',
                 justifyContent: 'center',
+                marginTop: -40,
               }}>
-              <Image
-                source={AppStyles.iconSet.plus}
+              <View
                 style={{
-                  width: 15,
-                  height: 15,
-                  tintColor: focused ? '#4852D9' : '#ffffff',
-                }}
-              />
+                  width: 60,
+                  height: 60,
+                  backgroundColor: focused ? '#B4BAFE' : '#B4BAFE',
+                  borderRadius: 50,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Image
+                  source={AppStyles.iconSet.plus}
+                  style={{
+                    width: 15,
+                    height: 15,
+                    tintColor: focused ? '#4852D9' : '#ffffff',
+                  }}
+                />
+              </View>
             </View>
           ),
         }}

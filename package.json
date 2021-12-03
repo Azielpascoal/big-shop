@@ -86,6 +86,7 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.2",
     "react-native-keyboard-aware-view": "^0.0.14",
     "react-native-keyboard-tracking-view": "^5.7.0",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-loader-overlay": "^1.0.0",
     "react-native-localize": "^1.4.1",
     "react-native-maps": "^0.27.1",

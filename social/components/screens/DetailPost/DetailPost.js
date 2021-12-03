@@ -54,6 +54,7 @@ function DetailPost(props) {
           onMediaPress={onMediaPress}
           onReaction={onReaction}
           shouldUpdate={shouldUpdate}
+          containerStyle={{ width: '100%', height: 700, marginBottom: 20 }}
           onSharePost={onSharePost}
           onDeletePost={onDeletePost}
           onUserReport={onUserReport}
