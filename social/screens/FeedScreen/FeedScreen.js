@@ -477,7 +477,7 @@ const FeedScreen = (props) => {
       ),
       headerRight: () => (
         <View style={styles.doubleNavIcon}>
-          {Platform.OS === 'android' && (
+          {/* {Platform.OS === 'android' && (
             <Menu ref={navMenuRef}>
               <MenuTrigger>
                 <Image
@@ -512,29 +512,28 @@ const FeedScreen = (props) => {
                 ))}
               </MenuOptions>
             </Menu>
-          )}
+          )} */}
           <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
+            imageStyle={{ tintColor: '#B4BAFE' }}
+            iconSource={AppStyles.iconSet.giftbox}
+            //onPress={onChatPress}
+            onPress={() => props.navigation.navigate('FeedNotification')}
+            appStyles={AppStyles}
+          />
+          <TNTouchableIcon
+            imageStyle={{ tintColor: '#B4BAFE' }}
             iconSource={AppStyles.iconSet.chat}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('Messaging')}
             appStyles={AppStyles}
           />
           <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
+            imageStyle={{ tintColor: '#B4BAFE' }}
             iconSource={AppStyles.iconSet.bell}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}
             appStyles={AppStyles}
           />
-
-          {/* <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.giftbox}
-            //onPress={onChatPress}
-            onPress={() => props.navigation.navigate('FeedNotification')}
-            appStyles={AppStyles}
-          /> */}
         </View>
       ),
       headerStyle: {
