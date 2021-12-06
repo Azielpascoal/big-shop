@@ -1,5 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { FlatList, View, ActivityIndicator, Dimensions } from 'react-native';
+import {
+  FlatList,
+  View,
+  ActivityIndicator,
+  Dimensions,
+  Text,
+} from 'react-native';
 import { useColorScheme, Appearance } from 'react-native-appearance';
 import { Viewport } from '@skele/components';
 import FeedItem from '../../FeedItem/FeedItem';
@@ -122,19 +128,19 @@ function Feed(props) {
   // stories state manager
   const [isShowingStories, setIsShowingStories] = useState(false);
 
-  const renderListHeader = () => {
+  const RenderListHeader = () => {
     let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
     let COLOR_SCHEME = Appearance.getColorScheme();
     if (displayStories) {
       return (
-        <View style={styles.storiesContainer}>
+        <View style={styles.storiesToggleContainer}>
           <TNTouchableIcon
             iconSource={
               isShowingStories
                 ? AppStyles.iconSet.arrowDown
                 : AppStyles.iconSet.arrowUp
             }
-            containerStyle={styles.iconstories}
+            containerStyle={styles.iconStories}
             onPress={() => setIsShowingStories(!isShowingStories)}
             appStyles={AppStyles}
           />
@@ -156,6 +162,7 @@ function Feed(props) {
     return null;
   };
 
+  //replace indicator with splash screen
   const renderListFooter = () => {
     if (isFetching) {
       return <ActivityIndicator style={{ marginVertical: 7 }} size="small" />;
@@ -194,46 +201,50 @@ function Feed(props) {
   }
 
   return (
-    <View style={styles.feedContainer}>
-      <Viewport.Tracker>
-        <FlatList
-          ref={(ref) => {
-            if (feedRef) {
-              feedRef.current = ref;
-            }
-          }}
-          scrollEventThrottle={16}
-          onScroll={onFeedScroll}
-          showsVerticalScrollIndicator={false}
-          getItemLayout={getItemLayout}
-          ListHeaderComponent={renderListHeader}
-          ListFooterComponent={renderListFooter}
-          ListEmptyComponent={renderEmptyComponent}
-          data={feed}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          onEndReachedThreshold={0.5}
-          onEndReached={handleOnEndReached}
+    <>
+      <View style={styles.feedContainer}>
+        <View>
+          <RenderListHeader />
+        </View>
+        <Viewport.Tracker>
+          <FlatList
+            ref={(ref) => {
+              if (feedRef) {
+                feedRef.current = ref;
+              }
+            }}
+            scrollEventThrottle={16}
+            onScroll={onFeedScroll}
+            showsVerticalScrollIndicator={false}
+            getItemLayout={getItemLayout}
+            ListFooterComponent={renderListFooter}
+            ListEmptyComponent={renderEmptyComponent}
+            data={feed}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            onEndReachedThreshold={0.5}
+            onEndReached={handleOnEndReached}
+          />
+        </Viewport.Tracker>
+        <IMCameraModal
+          isCameraOpen={isCameraOpen}
+          onImagePost={onImagePost}
+          onCameraClose={onCameraClose}
         />
-      </Viewport.Tracker>
-      <IMCameraModal
-        isCameraOpen={isCameraOpen}
-        onImagePost={onImagePost}
-        onCameraClose={onCameraClose}
-      />
-      <TNMediaViewerModal
-        mediaItems={feedItems}
-        isModalOpen={isMediaViewerOpen}
-        onClosed={onMediaClose}
-        selectedMediaIndex={selectedMediaIndex}
-      />
-      <MediaComposer
-        visible={isMediaComposerVisible}
-        onDismiss={onMediaComposerDismiss}
-        onSharePost={onShareMediaPost}
-        navigation={navigation}
-      />
-    </View>
+        <TNMediaViewerModal
+          mediaItems={feedItems}
+          isModalOpen={isMediaViewerOpen}
+          onClosed={onMediaClose}
+          selectedMediaIndex={selectedMediaIndex}
+        />
+        <MediaComposer
+          visible={isMediaComposerVisible}
+          onDismiss={onMediaComposerDismiss}
+          onSharePost={onShareMediaPost}
+          navigation={navigation}
+        />
+      </View>
+    </>
   );
   // }
 }

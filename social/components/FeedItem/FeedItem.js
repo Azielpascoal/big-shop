@@ -230,7 +230,7 @@ function FeedItem(props) {
             containerStyle={styles.footerIconContainer}
             iconSource={AppStyles.iconSet[selectedIcon]}
             imageStyle={[
-              styles.footerIcon,
+              styles.reactionIcon,
               selectedIcon === 'heartUnfilled' && styles.tintColor,
             ]}
             renderTitle={true}
@@ -250,7 +250,7 @@ function FeedItem(props) {
             containerStyle={styles.footerIconContainer}
             iconSource={AppStyles.iconSet.commentUnfilled}
             imageStyle={[
-              styles.footerIcon,
+              styles.reactionIcon,
               styles.tintColor,
               { marginLeft: -8 },
             ]}

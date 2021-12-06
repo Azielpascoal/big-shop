@@ -5,16 +5,15 @@ const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     feedContainer: {
       flex: 1,
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
     },
     emptyStateView: {
       marginTop: 80,
     },
-    storiesContainer: {
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
-    },
-    iconstories: {
-      marginLeft: '75%',
+    storiesToggleContainer: {
+      position: 'absolute',
+      left: '75%',
+      top: '0.5%',
     },
   });
 };

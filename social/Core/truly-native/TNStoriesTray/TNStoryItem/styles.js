@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 const imageContainerWidth = 66;
 const imageWidth = imageContainerWidth - 6;
 
+// Stories container styles MUSSASTORIES
+
 const dynamicStyles = (appStyles, colorScheme) => {
   return StyleSheet.create({
     container: {
@@ -12,16 +14,16 @@ const dynamicStyles = (appStyles, colorScheme) => {
     imageContainer: {
       width: imageContainerWidth,
       height: imageContainerWidth,
-      borderRadius: Math.floor(imageContainerWidth / 2),
+      borderRadius: Math.floor(imageContainerWidth / 4),
       borderColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
-      borderWidth: 2,
+      borderWidth: 1,
       justifyContent: 'center',
       alignItems: 'center',
     },
     image: {
       width: imageWidth,
       height: imageWidth,
-      borderRadius: Math.floor(imageWidth / 2),
+      borderRadius: Math.floor(imageWidth / 4),
       borderColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       borderWidth: 1,
       overflow: 'hidden',

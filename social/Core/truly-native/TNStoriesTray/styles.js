@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const dynamicStyles = (appStyles, colorScheme) => {
   return StyleSheet.create({
     storiesContainer: {
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      backgroundColor: 'transparent',
       marginBottom: 5,
       flexDirection: 'row',
     },

@@ -32,6 +32,7 @@ import { IMLocalized } from '../../Core/localization/IMLocalization';
 import { TNTouchableIcon, TNStoryItem } from '../../Core/truly-native';
 import { reportingManager } from '../../Core/user-reporting';
 import { Appearance } from 'react-native-appearance';
+import LinearGradientColor from '../../components/LinearGradient/LinearGradient';
 
 const FeedScreen = (props) => {
   const currentUser = useSelector((state) => state.auth.user);
@@ -82,14 +83,17 @@ const FeedScreen = (props) => {
     });
   }, []);
 
+  // following and unfollowing
   useEffect(() => {
     feedManager.subscribeIfNeeded();
   }, [friends]);
 
+  //stories update in fee screen
   useEffect(() => {
     setIsStoryUpdating(false);
   }, [groupedStories, myRecentStory]);
 
+  // load users posts
   useEffect(() => {
     if (mainFeedPosts) {
       setFeed(mainFeedPosts);
@@ -464,7 +468,7 @@ const FeedScreen = (props) => {
       },
     ];
     props.navigation.setOptions({
-      headerTitle: IMLocalized('Chat n Gift'),
+      headerTitle: false,
       headerLeft: () => (
         <TNStoryItem
           imageStyle={styles.userImage}
@@ -514,21 +518,22 @@ const FeedScreen = (props) => {
             </Menu>
           )} */}
           <TNTouchableIcon
-            imageStyle={{ tintColor: '#B4BAFE' }}
+            imageStyle={{ tintColor: '#919191' }}
             iconSource={AppStyles.iconSet.giftbox}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}
             appStyles={AppStyles}
           />
+
           <TNTouchableIcon
-            imageStyle={{ tintColor: '#B4BAFE' }}
+            imageStyle={{ tintColor: '#919191' }}
             iconSource={AppStyles.iconSet.chat}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('Messaging')}
             appStyles={AppStyles}
           />
           <TNTouchableIcon
-            imageStyle={{ tintColor: '#B4BAFE' }}
+            imageStyle={{ tintColor: '#919191' }}
             iconSource={AppStyles.iconSet.bell}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}

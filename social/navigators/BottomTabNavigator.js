@@ -1,13 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TNTouchableIcon, TNStoryItem } from '../../Core/truly-native';
-import {
-  InnerFeedNavigator,
-  InnerChatSearchNavigator,
-  InnerFriendsSearchNavigator,
-  InnerDiscoverNavigator,
-  InnerProfileNavigator,
-} from './InnerStackNavigators';
+
+import { InnerFeedNavigator } from './InnerStackNavigators';
 import { View, Image } from 'react-native';
 import CreatePostScreen from '../screens/CreatePostScreen/CreatePostScreen';
 import GiftsScreen from '../screens/GiftsScreen/GiftsScreen';
@@ -15,9 +9,6 @@ import LiveScreen from '../screens/LiveScreen/LiveScreen';
 //shop imports
 import shopNavigator from './shopStacknavigator';
 
-//
-import { TabBarBuilder } from '../Core/ui';
-import InstagramCloneConfig from '../InstagramCloneConfig';
 import AppStyles from '../AppStyles';
 
 const BottomTab = createBottomTabNavigator();
@@ -107,8 +98,6 @@ const BottomTabNavigator = () => {
               style={{
                 width: 70,
                 height: 70,
-                backgroundColor: 'linear-gradient(to top, #f32b60, #ff8f1f)',
-                borderRadius: 50,
                 alignItems: 'center',
                 justifyContent: 'center',
                 marginTop: -40,
@@ -117,7 +106,7 @@ const BottomTabNavigator = () => {
                 style={{
                   width: 60,
                   height: 60,
-                  backgroundColor: focused ? '#B4BAFE' : '#B4BAFE',
+                  backgroundColor: '#4852D9',
                   borderRadius: 50,
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -127,7 +116,7 @@ const BottomTabNavigator = () => {
                   style={{
                     width: 15,
                     height: 15,
-                    tintColor: focused ? '#4852D9' : '#ffffff',
+                    tintColor: '#ffffff',
                   }}
                 />
               </View>

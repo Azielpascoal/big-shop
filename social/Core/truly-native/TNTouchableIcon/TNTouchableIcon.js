@@ -3,6 +3,7 @@ import { TouchableOpacity, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import dynamicStyles from './styles';
 import { useColorScheme } from 'react-native-appearance';
+import { Button } from 'react-native-paper';
 
 function TNTouchableIcon(props) {
   const {

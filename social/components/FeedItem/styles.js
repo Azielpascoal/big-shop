@@ -1,16 +1,17 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../AppStyles';
 
-const reactionIconSize = Math.floor(AppStyles.WINDOW_WIDTH * 0.09);
+const reactionIconSize = Math.floor(AppStyles.WINDOW_WIDTH * 0.07);
+const reactionIconContainer = Math.floor(AppStyles.WINDOW_WIDTH * 0.3);
 const imageWidth = 34;
 
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
-      // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
+      //width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
       width: '100%',
       alignSelf: 'center',
-      height: 600,
+      height: AppStyles.WINDOW_HEIGHT * 0.7,
       borderRadius: 25,
       marginTop: 10,
       marginBottom: 10,
@@ -39,6 +40,14 @@ const dynamicStyles = (colorScheme) => {
     userImageMainContainer: {
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    bodyImageContainer: {
+      height: AppStyles.WINDOW_HEIGHT * 0.5,
+    },
+    bodyImage: {
+      height: '100%',
+      width: '100%',
+      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
     },
     textContainer: {
       flex: 6,
@@ -88,14 +97,6 @@ const dynamicStyles = (colorScheme) => {
     bodyTitleContainer: {
       marginHorizontal: 8,
     },
-    bodyImageContainer: {
-      height: AppStyles.WINDOW_HEIGHT * 0.5,
-    },
-    bodyImage: {
-      height: '100%',
-      width: '100%',
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
-    },
     inactiveDot: {
       backgroundColor: 'rgba(255,255,255,.3)',
       width: 6,
@@ -134,6 +135,8 @@ const dynamicStyles = (colorScheme) => {
       borderRadius: reactionIconSize / 2,
       justifyContent: 'center',
       alignItems: 'center',
+      flexDirection: 'row',
+      position: 'absolute',
     },
     reactionIcon: {
       width: reactionIconSize,
@@ -142,17 +145,17 @@ const dynamicStyles = (colorScheme) => {
     },
     footerContainer: {
       flexDirection: 'row',
-      width: ' 94%',
+      width: '94%',
       alignSelf: 'center',
       marginTop: 40,
       position: 'absolute',
-      marginTop: '130%',
+      marginTop: '115%',
     },
     footerIconArea: {
-      width: 96,
-      height: 30,
-      backgroundColor: '#fff',
+      width: reactionIconContainer,
+      height: 35,
       flexDirection: 'row',
+      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 10,
@@ -163,11 +166,6 @@ const dynamicStyles = (colorScheme) => {
       justifyContent: 'center',
       alignItems: 'center',
       margin: 0,
-    },
-    footerIcon: {
-      margin: 3,
-      height: 20,
-      width: 20,
     },
     mediaVideoLoader: {
       position: 'absolute',
