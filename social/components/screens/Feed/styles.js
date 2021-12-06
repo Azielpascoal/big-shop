@@ -4,6 +4,7 @@ import AppStyles from '../../../AppStyles';
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     feedContainer: {
+      paddingTop: 20,
       flex: 1,
       backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
     },
@@ -12,8 +13,10 @@ const dynamicStyles = (colorScheme) => {
     },
     storiesToggleContainer: {
       position: 'absolute',
-      left: '75%',
-      top: '0.5%',
+      left: 270,
+      top: -10,
+      elevation: 4,
+      height: 400,
     },
   });
 };

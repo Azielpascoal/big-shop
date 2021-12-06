@@ -6,8 +6,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       padding: 10,
     },
     Image: {
-      width: 25,
-      height: 25,
+      width: 20,
+      height: 20,
       margin: 6,
     },
     title: {

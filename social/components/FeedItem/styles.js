@@ -155,7 +155,7 @@ const dynamicStyles = (colorScheme) => {
       width: reactionIconContainer,
       height: 35,
       flexDirection: 'row',
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: 'rgba(255,255,255,.3)',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 10,

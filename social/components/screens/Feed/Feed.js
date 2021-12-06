@@ -203,9 +203,7 @@ function Feed(props) {
   return (
     <>
       <View style={styles.feedContainer}>
-        <View>
-          <RenderListHeader />
-        </View>
+        <RenderListHeader />
         <Viewport.Tracker>
           <FlatList
             ref={(ref) => {
