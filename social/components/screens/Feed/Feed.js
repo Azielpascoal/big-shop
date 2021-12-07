@@ -134,28 +134,29 @@ function Feed(props) {
     if (displayStories) {
       return (
         <View style={styles.storiesToggleContainer}>
-          <TNTouchableIcon
-            iconSource={
-              isShowingStories
-                ? AppStyles.iconSet.arrowDown
-                : AppStyles.iconSet.arrowUp
-            }
-            containerStyle={styles.iconStories}
-            onPress={() => setIsShowingStories(!isShowingStories)}
-            appStyles={AppStyles}
-          />
-          {isShowingStories && (
-            <FullStories
-              ref={fullStoryRef}
-              user={user}
-              shouldEmptyStories={shouldEmptyStories}
-              isStoryUpdating={isStoryUpdating}
-              onUserItemPress={onUserItemPress}
-              stories={stories}
-              userStories={userStories}
+          <View style={iconStories}>
+            <TNTouchableIcon
+              iconSource={
+                isShowingStories
+                  ? AppStyles.iconSet.arrowDown
+                  : AppStyles.iconSet.arrowUp
+              }
+              onPress={() => setIsShowingStories(!isShowingStories)}
               appStyles={AppStyles}
             />
-          )}
+            {isShowingStories && (
+              <FullStories
+                ref={fullStoryRef}
+                user={user}
+                shouldEmptyStories={shouldEmptyStories}
+                isStoryUpdating={isStoryUpdating}
+                onUserItemPress={onUserItemPress}
+                stories={stories}
+                userStories={userStories}
+                appStyles={AppStyles}
+              />
+            )}
+          </View>
         </View>
       );
     }
@@ -203,9 +204,8 @@ function Feed(props) {
   return (
     <>
       <View style={styles.feedContainer}>
-        <View>
-          <RenderListHeader />
-        </View>
+        <RenderListHeader />
+
         <Viewport.Tracker>
           <FlatList
             ref={(ref) => {

@@ -6,6 +6,8 @@ import { View, Image } from 'react-native';
 import CreatePostScreen from '../screens/CreatePostScreen/CreatePostScreen';
 import GiftsScreen from '../screens/GiftsScreen/GiftsScreen';
 import LiveScreen from '../screens/LiveScreen/LiveScreen';
+
+import styles from './styles';
 //shop imports
 import shopNavigator from './shopStacknavigator';
 
@@ -39,23 +41,19 @@ const BottomTabNavigator = () => {
         name="Feed"
         component={InnerFeedNavigator}
         options={{
+          tabBarLabel: 'Home',
           tabBarIcon: ({ focused }) => (
             <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 8,
-                backgroundColor: focused ? '#4852D91A' : '#ffffff',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.tabBarIconStyles,
+                { backgroundColor: focused ? '#4852D91A' : '#ffffff' },
+              ]}>
               <Image
                 source={AppStyles.iconSet.homefilled}
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? '#4852D9' : '#999999',
-                }}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : '#999999' },
+                ]}
               />
             </View>
           ),
@@ -65,23 +63,19 @@ const BottomTabNavigator = () => {
         name="Live"
         component={LiveScreen}
         options={{
+          tabBarLabel: 'Motions',
           tabBarIcon: ({ focused }) => (
             <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 8,
-                backgroundColor: focused ? '#4852D91A' : '#ffffff',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.tabBarIconStyles,
+                { backgroundColor: focused ? '#4852D91A' : '#ffffff' },
+              ]}>
               <Image
                 source={AppStyles.iconSet.live}
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? '#4852D9' : '#999999',
-                }}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : '#999999' },
+                ]}
               />
             </View>
           ),
@@ -89,62 +83,42 @@ const BottomTabNavigator = () => {
       />
       {/* <BottomTab.Screen name="Discover" component={InnerDiscoverNavigator} /> */}
       {/* <BottomTab.Screen name="Chat" component={InnerChatSearchNavigator} /> */}
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="CreatePost"
         component={CreatePostScreen}
         options={{
+          tabBarLabel: 'Create Post',
           tabBarIcon: ({ focused }) => (
             <View
-              style={{
-                width: 70,
-                height: 70,
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: -40,
-              }}>
-              <View
-                style={{
-                  width: 60,
-                  height: 60,
-                  backgroundColor: '#4852D9',
-                  borderRadius: 50,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}>
-                <Image
-                  source={AppStyles.iconSet.plus}
-                  style={{
-                    width: 15,
-                    height: 15,
-                    tintColor: '#ffffff',
-                  }}
-                />
-              </View>
+              style={[styles.tabBarIconStyles, { backgroundColor: '#999999' }]}>
+              <Image
+                source={AppStyles.iconSet.plus}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : 'white' },
+                ]}
+              />
             </View>
           ),
         }}
-      />
+      /> */}
       <BottomTab.Screen
         name="ShopHome"
         component={shopNavigator}
         options={{
+          tabBarLabel: 'Shop',
           tabBarIcon: ({ focused }) => (
             <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 8,
-                backgroundColor: focused ? '#4852D91A' : '#ffffff',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.tabBarIconStyles,
+                { backgroundColor: focused ? '#4852D91A' : '#ffffff' },
+              ]}>
               <Image
                 source={AppStyles.iconSet.shoppingBagFilled}
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? '#4852D9' : '#999999',
-                }}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : '#999999' },
+                ]}
               />
             </View>
           ),
@@ -158,23 +132,19 @@ const BottomTabNavigator = () => {
         name="Gifts"
         component={GiftsScreen}
         options={{
+          tabBarLabel: 'Gifts',
           tabBarIcon: ({ focused }) => (
             <View
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 8,
-                backgroundColor: focused ? '#4852D91A' : '#ffffff',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.tabBarIconStyles,
+                { backgroundColor: focused ? '#4852D91A' : '#ffffff' },
+              ]}>
               <Image
                 source={AppStyles.iconSet.giftbox}
-                style={{
-                  width: 25,
-                  height: 25,
-                  tintColor: focused ? '#4852D9' : '#999999',
-                }}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : '#999999' },
+                ]}
               />
             </View>
           ),

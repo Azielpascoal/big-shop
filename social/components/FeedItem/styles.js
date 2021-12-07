@@ -25,6 +25,13 @@ const dynamicStyles = (colorScheme) => {
       position: 'absolute',
       width: '100%',
     },
+    subHeaderContainer: {
+      flexDirection: 'row',
+      backgroundColor: 'rgba(60,60,60,.5)',
+      flex: 0.7,
+      borderRadius: 10,
+      marginLeft: 8,
+    },
     userImage: {
       width: imageWidth,
       height: imageWidth,
@@ -50,7 +57,7 @@ const dynamicStyles = (colorScheme) => {
       backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
     },
     textContainer: {
-      flex: 6,
+      flex: 0.5,
       marginTop: 10,
       justifyContent: 'center',
     },
@@ -62,8 +69,8 @@ const dynamicStyles = (colorScheme) => {
       flex: 1.3,
     },
     title: {
-      color: AppStyles.colorSet[colorScheme].mainTextColor,
-      fontSize: 12,
+      color: 'white',
+      fontSize: 14,
       fontWeight: 'bold',
     },
     subtitle: {
@@ -155,7 +162,7 @@ const dynamicStyles = (colorScheme) => {
       width: reactionIconContainer,
       height: 35,
       flexDirection: 'row',
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: 'rgba(60,60,60,.5)',
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 10,
