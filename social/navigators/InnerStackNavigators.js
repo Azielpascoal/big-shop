@@ -47,6 +47,7 @@ const InnerFeedNavigator = () => {
         }}
       />
       <Stack.Screen name="FeedProfile" component={ProfileScreen} />
+      <Stack.Screen name="CreatePost" component={CreatePostScreen} />
       <Stack.Screen
         name="Messaging"
         component={InnerChatSearchNavigator}

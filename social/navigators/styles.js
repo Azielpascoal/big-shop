@@ -13,8 +13,15 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   tabNavigatorIcon: {
-    width: 25,
-    height: 25,
+    width: 23,
+    height: 23,
+  },
+  tabBarIconStyles: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 

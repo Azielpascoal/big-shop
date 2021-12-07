@@ -198,21 +198,23 @@ function FeedItem(props) {
         </View>
       )}
       <View style={styles.headerContainer}>
-        <TNStoryItem
-          imageStyle={styles.userImage}
-          imageContainerStyle={styles.userImageContainer}
-          containerStyle={styles.userImageMainContainer}
-          item={item.author}
-          onPress={onUserItemPress}
-          appStyles={AppStyles}
-        />
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>
-            {item.author && item.author.firstName}
-          </Text>
-          <View style={styles.mainSubtitleContainer}>
-            <View style={[styles.subtitleContainer, { flex: 2 }]}>
-              <Text style={styles.subtitle}>{item.location}</Text>
+        <View style={styles.subHeaderContainer}>
+          <TNStoryItem
+            imageStyle={styles.userImage}
+            imageContainerStyle={styles.userImageContainer}
+            containerStyle={styles.userImageMainContainer}
+            item={item.author}
+            onPress={onUserItemPress}
+            appStyles={AppStyles}
+          />
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>
+              {item.author && item.author.firstName}
+            </Text>
+            <View style={styles.mainSubtitleContainer}>
+              <View style={[styles.subtitleContainer, { flex: 2 }]}>
+                <Text style={styles.subtitle}>{item.location}</Text>
+              </View>
             </View>
           </View>
         </View>

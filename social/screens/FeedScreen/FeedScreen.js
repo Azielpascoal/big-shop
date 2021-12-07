@@ -481,13 +481,13 @@ const FeedScreen = (props) => {
       ),
       headerRight: () => (
         <View style={styles.doubleNavIcon}>
-          {/* {Platform.OS === 'android' && (
+          {Platform.OS === 'android' && (
             <Menu ref={navMenuRef}>
               <MenuTrigger>
                 <Image
                   style={[
                     {
-                      tintColor: currentTheme.fontColor,
+                      tintColor: '#919191',
                     },
                     styles.navIcon,
                   ]}
@@ -516,14 +516,14 @@ const FeedScreen = (props) => {
                 ))}
               </MenuOptions>
             </Menu>
-          )} */}
-          <TNTouchableIcon
+          )}
+          {/* <TNTouchableIcon
             imageStyle={{ tintColor: '#919191' }}
             iconSource={AppStyles.iconSet.giftbox}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}
             appStyles={AppStyles}
-          />
+          /> */}
 
           <TNTouchableIcon
             imageStyle={{ tintColor: '#919191' }}
@@ -537,6 +537,13 @@ const FeedScreen = (props) => {
             iconSource={AppStyles.iconSet.bell}
             //onPress={onChatPress}
             onPress={() => props.navigation.navigate('FeedNotification')}
+            appStyles={AppStyles}
+          />
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.inscription}
+            onPress={toggleMediaComposer}
+            onPress={() => props.navigation.navigate('CreatePost')}
             appStyles={AppStyles}
           />
         </View>
