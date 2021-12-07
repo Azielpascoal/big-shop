@@ -37,6 +37,7 @@ function FeedItem(props) {
     shouldDisplayViewAllComments,
     onTextFieldUserPress,
     onTextFieldHashTagPress,
+    footerIconContainerView,
   } = props;
 
   const colorScheme = useColorScheme();
@@ -225,48 +226,55 @@ function FeedItem(props) {
         />
       </View>
       <View style={styles.footerContainer}>
-        <View style={styles.footerIconArea}>
-          <TNTouchableIcon
-            containerStyle={styles.footerIconContainer}
-            iconSource={AppStyles.iconSet[selectedIcon]}
-            imageStyle={[
-              styles.reactionIcon,
-              selectedIcon === 'heartUnfilled' && styles.tintColor,
-            ]}
-            renderTitle={true}
-            onPress={onReactionPress}
-            appStyles={AppStyles}
-          />
-          {reactionCount > 0 && (
-            <Text style={[styles.body, styles.title]}>
-              {reactionCount === 1
-                ? `${reactionCount} like`
-                : `${reactionCount} likes `}
-            </Text>
-          )}
-        </View>
-        <View style={styles.footerIconArea}>
-          <TNTouchableIcon
-            containerStyle={styles.footerIconContainer}
-            iconSource={AppStyles.iconSet.commentUnfilled}
-            imageStyle={[
-              styles.reactionIcon,
-              styles.tintColor,
-              { marginLeft: -8 },
-            ]}
-            renderTitle={true}
-            onPress={didPressComment}
-            appStyles={AppStyles}
-          />
-          {shouldDisplayViewAllComments && item.commentCount > 0 && (
-            <TouchableOpacity activeOpacity={1} onPress={didPressComment}>
+        <View
+          // componente adicionado por Aziel ,para tornar ou não visivel os botões
+          style={{
+            flexDirection: 'row',
+            display: footerIconContainerView,
+          }}>
+          <View style={styles.footerIconArea}>
+            <TNTouchableIcon
+              containerStyle={styles.footerIconContainer}
+              iconSource={AppStyles.iconSet[selectedIcon]}
+              imageStyle={[
+                styles.reactionIcon,
+                selectedIcon === 'heartUnfilled' && styles.tintColor,
+              ]}
+              renderTitle={true}
+              onPress={onReactionPress}
+              appStyles={AppStyles}
+            />
+            {reactionCount > 0 && (
               <Text style={[styles.body, styles.title]}>
-                {item.commentCount === 1
-                  ? `${item.commentCount}`
-                  : `${item.commentCount}`}
+                {reactionCount === 1
+                  ? `${reactionCount} like`
+                  : `${reactionCount} likes `}
               </Text>
-            </TouchableOpacity>
-          )}
+            )}
+          </View>
+          <View style={styles.footerIconArea}>
+            <TNTouchableIcon
+              containerStyle={styles.footerIconContainer}
+              iconSource={AppStyles.iconSet.commentUnfilled}
+              imageStyle={[
+                styles.reactionIcon,
+                styles.tintColor,
+                { marginLeft: -8 },
+              ]}
+              renderTitle={true}
+              onPress={didPressComment}
+              appStyles={AppStyles}
+            />
+            {shouldDisplayViewAllComments && item.commentCount > 0 && (
+              <TouchableOpacity activeOpacity={1} onPress={didPressComment}>
+                <Text style={[styles.body, styles.title]}>
+                  {item.commentCount === 1
+                    ? `${item.commentCount}`
+                    : `${item.commentCount}`}
+                </Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </View>
       <View style={styles.textContainer}>

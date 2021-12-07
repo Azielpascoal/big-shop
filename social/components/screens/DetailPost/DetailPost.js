@@ -45,37 +45,40 @@ function DetailPost(props) {
 
   return (
     <KeyboardAwareView style={styles.detailPostContainer}>
-      <ScrollView ref={scrollViewRef}>
-        <FeedItem
-          item={feedItem}
-          isLastItem={true}
-          onUserItemPress={onFeedUserItemPress}
-          onCommentPress={onCommentPress}
-          onMediaPress={onMediaPress}
-          onReaction={onReaction}
-          shouldUpdate={shouldUpdate}
-          containerStyle={{ width: '100%', height: 700, marginBottom: 20 }}
-          onSharePost={onSharePost}
-          onDeletePost={onDeletePost}
-          onUserReport={onUserReport}
-          user={user}
-          shouldDisplayViewAllComments={false}
-          onTextFieldHashTagPress={onTextFieldHashTagPress}
-          onTextFieldUserPress={onTextFieldUserPress}
-        />
-        {commentsLoading ? (
+      {/* <ScrollView ref={scrollViewRef}> */}
+      <FeedItem
+        item={feedItem}
+        isLastItem={true}
+        onUserItemPress={onFeedUserItemPress}
+        onCommentPress={onCommentPress}
+        onMediaPress={onMediaPress}
+        onReaction={onReaction}
+        shouldUpdate={shouldUpdate}
+        containerStyle={{ height: '100%' }}
+        onSharePost={onSharePost}
+        onDeletePost={onDeletePost}
+        onUserReport={onUserReport}
+        user={user}
+        shouldDisplayViewAllComments={false}
+        onTextFieldHashTagPress={onTextFieldHashTagPress}
+        onTextFieldUserPress={onTextFieldUserPress}
+        footerIconContainerView="none"
+      />
+
+      {/* {commentsLoading ? (
           <ActivityIndicator style={{ marginVertical: 7 }} size="small" />
         ) : (
           commentItems.map((comment) => <CommentItem item={comment} />)
-        )}
-      </ScrollView>
-      <CommentInput onCommentSend={onCommentSend} />
+        )} */}
+      {/* </ScrollView> */}
+      {/* <CommentInput onCommentSend={onCommentSend} />
       <TNMediaViewerModal
         mediaItems={feedItems}
         isModalOpen={isMediaViewerOpen}
         onClosed={onMediaClose}
         selectedMediaIndex={selectedMediaIndex}
-      />
+      /> */}
+      {/* Codigo comentado por Aziel seguindo o design das telas no figma*/}
     </KeyboardAwareView>
   );
 }
