@@ -16,7 +16,7 @@ const dynamicStyles = (colorScheme) => {
       borderRadius: 25,
       backgroundColor: '#ddd',
       marginLeft: -30,
-      borderColor: '#4852D9',
+      borderColor: '#fff',
       borderWidth: 2,
     },
   });
