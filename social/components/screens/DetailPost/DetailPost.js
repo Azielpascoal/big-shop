@@ -4,6 +4,7 @@ import { ScrollView, ActivityIndicator } from 'react-native';
 import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
 // import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import { useColorScheme } from 'react-native-appearance';
+import DetailsPostViewer from '../../DetailsPostViewer/DetailsPostViewer';
 import FeedItem from '../../FeedItem/FeedItem';
 import CommentItem from './CommentItem';
 import CommentInput from './CommentInput';
@@ -55,6 +56,23 @@ function DetailPost(props) {
         onReaction={onReaction}
         shouldUpdate={shouldUpdate}
         containerStyle={{ height: '100%' }}
+        onSharePost={onSharePost}
+        onDeletePost={onDeletePost}
+        onUserReport={onUserReport}
+        user={user}
+        shouldDisplayViewAllComments={false}
+        onTextFieldHashTagPress={onTextFieldHashTagPress}
+        onTextFieldUserPress={onTextFieldUserPress}
+        footerIconContainerView="none"
+      />
+      <DetailsPostViewer
+        item={feedItem}
+        isLastItem={true}
+        onUserItemPress={onFeedUserItemPress}
+        onCommentPress={onCommentPress}
+        onMediaPress={onMediaPress}
+        onReaction={onReaction}
+        shouldUpdate={shouldUpdate}
         onSharePost={onSharePost}
         onDeletePost={onDeletePost}
         onUserReport={onUserReport}

@@ -27,10 +27,12 @@ const dynamicStyles = (colorScheme) => {
     },
     subHeaderContainer: {
       flexDirection: 'row',
+      height: AppStyles.WINDOW_HEIGHT * 0.06,
       backgroundColor: 'rgba(60,60,60,.5)',
       flex: 0.7,
       borderRadius: 10,
-      marginLeft: 8,
+      marginTop: 10,
+      marginLeft: 10,
     },
     userImage: {
       width: imageWidth,
