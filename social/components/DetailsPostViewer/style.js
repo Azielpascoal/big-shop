@@ -10,9 +10,9 @@ const dynamicStyles = (colorScheme) => {
       flexDirection: 'row',
     },
     containerImage: {
-      width: Math.floor(AppStyles.WINDOW_WIDTH * 0.28),
+      width: Math.floor(AppStyles.WINDOW_WIDTH * 0.32),
       alignSelf: 'center',
-      height: AppStyles.WINDOW_HEIGHT * 0.3,
+      height: AppStyles.WINDOW_HEIGHT * 0.25,
       borderRadius: 25,
       backgroundColor: '#ddd',
       marginLeft: -30,

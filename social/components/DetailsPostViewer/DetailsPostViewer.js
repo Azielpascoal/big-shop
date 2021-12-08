@@ -73,6 +73,7 @@ function DetailsPostViewer(props) {
     }
   };
   return (
+    //Componente criado por Aziel
     <View style={styles.container}>
       {item.postMedia.map((media, index) => (
         <View style={styles.containerImage}>
