@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, BackHandler } from 'react-native';
+import { Platform, BackHandler, View, Animated, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Profile } from '../../components';
 import { userAPIManager, storageAPI } from '../../Core/api';
@@ -13,12 +13,22 @@ import InstagramCloneConfig from '../../InstagramCloneConfig';
 import { FriendshipConstants } from '../../Core/socialgraph/friendships/constants';
 import { Appearance } from 'react-native-appearance';
 
+import { FAB, shadow } from 'react-native-paper';
+
+import styles from './styles';
+
 const defaultAvatar =
   'https://www.iosapptemplates.com/wp-content/uploads/2019/06/empty-avatar.jpg';
 
 class ProfileScreen extends Component {
   constructor(props) {
     super(props);
+
+    // floating button state management
+    this.state = {
+      activeIndex: 0,
+    };
+
     let COLOR_SCHEME = Appearance.getColorScheme();
     let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
     this.otherUser = this.props.route.params?.user;
@@ -41,14 +51,15 @@ class ProfileScreen extends Component {
       headerTintColor: currentTheme.fontColor,
     });
 
+    // sama
     const lastScreenTitle = this.props.route.params?.lastScreenTitle;
     if (!lastScreenTitle && Platform.OS === 'android') {
       props.navigation.setOptions({
         headerLeft: () => (
           <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.menuHamburger}
-            onPress={this.openDrawer}
+            iconSource={AppStyles.iconSet.backArrow}
+            onPress={this.onBackButtonPressAndroid}
             appStyles={AppStyles}
           />
         ),
@@ -342,10 +353,24 @@ class ProfileScreen extends Component {
     }
   };
 
+  animation = new Animated.Value(0);
+
+  toggleMenu = () => {
+    const toValue = this.open ? 0 : 1;
+
+    Animated.spring(this.animation, {
+      toValue,
+      friction: 5,
+    }).start();
+    this.open = !this.open;
+  };
+
   render() {
     let currentProfile = this.otherUser || this.props.user;
     let postsCount = currentProfile.postsCount || 0;
     let mainButtonTitle = IMLocalized('Profile Settings');
+    let COLOR_SCHEME = Appearance.getColorScheme();
+    let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
 
     if (this.otherUser) {
       mainButtonTitle = IMLocalized('Send Direct Message');
@@ -354,32 +379,175 @@ class ProfileScreen extends Component {
       }
     }
 
+    {
+      /*  Component for the FAB button needs to be redone --------> */
+    }
+    const cameraStyle = {
+      transform: [
+        { scale: this.animation },
+        {
+          translateY: this.animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, -25],
+          }),
+        },
+      ],
+    };
+    const likesStyle = {
+      transform: [
+        { scale: this.animation },
+        {
+          translateY: this.animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, -50],
+          }),
+        },
+      ],
+    };
+    const rotation = {
+      transform: [
+        {
+          rotate: this.animation.interpolate({
+            inputRange: [0, 1],
+            outputRange: ['0deg', '45deg'],
+          }),
+        },
+      ],
+    };
+    {
+      /* <-------- Component for the FAB button needs to be redone */
+    }
     return (
-      <Profile
-        loading={this.state.loading}
-        uploadProgress={this.state.uploadProgress}
-        user={this.otherUser ? this.otherUser : this.props.user}
-        mainButtonTitle={mainButtonTitle}
-        followingCount={this.state.outboundFriendsCount}
-        followersCount={this.state.inboundFriendsCount}
-        postCount={postsCount}
-        recentUserFeeds={this.state.profilePosts}
-        onMainButtonPress={this.onMainButtonPress}
-        selectedMediaIndex={this.state.selectedMediaIndex}
-        onPostPress={this.onPostPress}
-        isMediaViewerOpen={this.state.isMediaViewerOpen}
-        feedItems={this.state.selectedFeedItems}
-        onMediaClose={this.onMediaClose}
-        removePhoto={this.removePhoto}
-        startUpload={this.startUpload}
-        handleOnEndReached={this.handleOnEndReached}
-        isFetching={this.state.isFetching}
-        isOtherUser={this.otherUser}
-        onFollowersButtonPress={this.onFollowersButtonPress}
-        onFollowingButtonPress={this.onFollowingButtonPress}
-        onEmptyStatePress={this.onEmptyStatePress}
-        navigation={this.props.navigation}
-      />
+      <View style={{ flex: 1 }}>
+        <Profile
+          loading={this.state.loading}
+          uploadProgress={this.state.uploadProgress}
+          user={this.otherUser ? this.otherUser : this.props.user}
+          mainButtonTitle={mainButtonTitle}
+          followingCount={this.state.outboundFriendsCount}
+          followersCount={this.state.inboundFriendsCount}
+          postCount={postsCount}
+          recentUserFeeds={this.state.profilePosts}
+          onMainButtonPress={this.onMainButtonPress}
+          selectedMediaIndex={this.state.selectedMediaIndex}
+          onPostPress={this.onPostPress}
+          isMediaViewerOpen={this.state.isMediaViewerOpen}
+          feedItems={this.state.selectedFeedItems}
+          onMediaClose={this.onMediaClose}
+          removePhoto={this.removePhoto}
+          startUpload={this.startUpload}
+          handleOnEndReached={this.handleOnEndReached}
+          isFetching={this.state.isFetching}
+          isOtherUser={this.otherUser}
+          onFollowersButtonPress={this.onFollowersButtonPress}
+          onFollowingButtonPress={this.onFollowingButtonPress}
+          onEmptyStatePress={this.onEmptyStatePress}
+          navigation={this.props.navigation}
+        />
+        {/* Component for the FAB button ------> */}
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderRadius: 60,
+            shadowColor: '#171717',
+            shadowOffset: { width: -4, height: 4 },
+            shadowOpacity: 0.25,
+            shadowRadius: 1,
+            elevation: 6,
+            margin: 20,
+            width: 46,
+            height: 46,
+            justifyContent: 'center',
+          }}>
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.settings}
+            onPress={this.onMainButtonPress}
+            appStyles={AppStyles}
+          />
+        </View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 60,
+            right: 0,
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderRadius: 60,
+            shadowColor: '#171717',
+            shadowOffset: { width: -4, height: 4 },
+            shadowOpacity: 0.25,
+            shadowRadius: 1,
+            elevation: 6,
+            margin: 20,
+            width: 56,
+            height: 56,
+            justifyContent: 'center',
+          }}>
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.openGift}
+            onPress={this.onMainButtonPress}
+            appStyles={AppStyles}
+          />
+        </View>
+
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 120,
+            right: 0,
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderRadius: 60,
+            shadowColor: '#171717',
+            shadowOffset: { width: -4, height: 4 },
+            shadowOpacity: 0.25,
+            shadowRadius: 1,
+            elevation: 6,
+            margin: 20,
+            width: 56,
+            height: 56,
+            justifyContent: 'center',
+          }}>
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.giftbox}
+            onPress={this.onMainButtonPress}
+            appStyles={AppStyles}
+          />
+        </View>
+        <View
+          style={{
+            position: 'absolute',
+            bottom: 180,
+            right: 0,
+            alignItems: 'center',
+            backgroundColor: 'white',
+            borderRadius: 60,
+            shadowColor: '#171717',
+            shadowOffset: { width: -4, height: 4 },
+            shadowOpacity: 0.25,
+            shadowRadius: 1,
+            elevation: 6,
+            margin: 20,
+            width: 56,
+            height: 56,
+            justifyContent: 'center',
+          }}>
+          <TNTouchableIcon
+            imageStyle={{ tintColor: currentTheme.fontColor }}
+            iconSource={AppStyles.iconSet.profilePosts}
+            onPress={this.onMainButtonPress}
+            appStyles={AppStyles}
+          />
+        </View>
+        {/* <-------- Component for the FAB button needs to be redone */}
+      </View>
     );
   }
 }

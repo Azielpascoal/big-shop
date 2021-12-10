@@ -1,36 +1,24 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../AppStyles';
 
-const reactionIconSize = Math.floor(AppStyles.WINDOW_WIDTH * 0.07);
-const reactionIconContainer = Math.floor(AppStyles.WINDOW_WIDTH * 0.3);
+const reactionIconSize = Math.floor(AppStyles.WINDOW_WIDTH * 0.09);
 const imageWidth = 34;
 
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
-      //width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
+      // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
       width: '100%',
       alignSelf: 'center',
-      height: AppStyles.WINDOW_HEIGHT * 0.7,
-      borderRadius: 25,
-      marginTop: 10,
-      marginBottom: 10,
-      position: 'relative',
-
       // marginVertical: 3,
-      backgroundColor: '#ddd',
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      borderBottomWidth: 6,
+      borderBottomColor: AppStyles.colorSet[colorScheme].grey6,
     },
     headerContainer: {
       flexDirection: 'row',
-      position: 'absolute',
-      width: '100%',
-    },
-    subHeaderContainer: {
-      flexDirection: 'row',
-      backgroundColor: 'rgba(60,60,60,.5)',
-      flex: 0.7,
-      borderRadius: 10,
-      marginLeft: 8,
+      justifyContent: 'space-between',
+      alignItems: 'center',
     },
     userImage: {
       width: imageWidth,
@@ -48,16 +36,8 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'center',
       justifyContent: 'center',
     },
-    bodyImageContainer: {
-      height: AppStyles.WINDOW_HEIGHT * 0.5,
-    },
-    bodyImage: {
-      height: '100%',
-      width: '100%',
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
-    },
     textContainer: {
-      flex: 0.5,
+      flex: 6,
       marginTop: 10,
       justifyContent: 'center',
     },
@@ -69,9 +49,9 @@ const dynamicStyles = (colorScheme) => {
       flex: 1.3,
     },
     title: {
-      color: 'white',
+      color: AppStyles.colorSet[colorScheme].mainTextColor,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontWeight: '600',
     },
     subtitle: {
       color: AppStyles.colorSet[colorScheme].mainSubtextColor,
@@ -81,8 +61,8 @@ const dynamicStyles = (colorScheme) => {
       color: AppStyles.colorSet[colorScheme].mainTextColor,
       fontSize: 12,
       lineHeight: 18,
-      paddingHorizontal: 4,
-      paddingRight: 4,
+      paddingBottom: 7,
+      paddingHorizontal: 12,
     },
     moreText: {
       color: AppStyles.colorSet[colorScheme].mainThemeForegroundColor,
@@ -96,13 +76,21 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'flex-end',
     },
     moreIcon: {
-      height: 25,
-      width: 25,
-      tintColor: AppStyles.colorSet[colorScheme].headerStyleColor,
-      marginRight: 10,
+      height: 18,
+      width: 18,
+      tintColor: AppStyles.colorSet[colorScheme].mainSubtextColor,
+      margin: 0,
     },
     bodyTitleContainer: {
       marginHorizontal: 8,
+    },
+    bodyImageContainer: {
+      height: AppStyles.WINDOW_HEIGHT * 0.5,
+    },
+    bodyImage: {
+      height: '100%',
+      width: '100%',
+      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
     },
     inactiveDot: {
       backgroundColor: 'rgba(255,255,255,.3)',
@@ -142,8 +130,6 @@ const dynamicStyles = (colorScheme) => {
       borderRadius: reactionIconSize / 2,
       justifyContent: 'center',
       alignItems: 'center',
-      flexDirection: 'row',
-      position: 'absolute',
     },
     reactionIcon: {
       width: reactionIconSize,
@@ -152,27 +138,17 @@ const dynamicStyles = (colorScheme) => {
     },
     footerContainer: {
       flexDirection: 'row',
-      width: '94%',
-      alignSelf: 'center',
-      marginTop: 40,
-      position: 'absolute',
-      marginTop: '115%',
-    },
-    footerIconArea: {
-      width: reactionIconContainer,
-      height: 35,
-      flexDirection: 'row',
-      backgroundColor: 'rgba(60,60,60,.5)',
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 10,
-      marginRight: 8,
     },
     footerIconContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       margin: 0,
+    },
+    footerIcon: {
+      margin: 3,
+      height: 25,
+      width: 25,
     },
     mediaVideoLoader: {
       position: 'absolute',

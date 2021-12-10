@@ -3,12 +3,13 @@ import AppStyles from '../../../AppStyles';
 
 // const imageContainerWidth = 66;
 const imageWidth = Dimensions.get('window').width / 4.0;
+const userImageWidth = Dimensions.get('window').width / 5.0;
 
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       alignItems: 'center',
     },
     progressBar: {
@@ -16,16 +17,17 @@ const dynamicStyles = (colorScheme) => {
       height: 3,
       shadowColor: '#000',
       width: 0,
+      borderTopWidth: 2,
+      borderTopColor: 'black',
     },
     subContainer: {
       flex: 1,
-      backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       alignItems: 'center',
+      marginBottom: 10,
       // width: '100%',
     },
     userCardContainer: {
-      flexDirection: 'row',
-      alignSelf: 'flex-start',
       // width: '100%',
     },
     countItemsContainer: {
@@ -38,9 +40,15 @@ const dynamicStyles = (colorScheme) => {
       justifyContent: 'center',
       alignItems: 'center',
     },
+    countContainerBorder: {
+      borderRightWidth: 3,
+      width: 10,
+      height: 20,
+      borderColor: AppStyles.colorSet[colorScheme].grey6,
+    },
     userImage: {
-      width: imageWidth,
-      height: imageWidth,
+      width: userImageWidth,
+      height: userImageWidth,
       borderRadius: Math.floor(imageWidth / 2),
       borderWidth: 0,
     },

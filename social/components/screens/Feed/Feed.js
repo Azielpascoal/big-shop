@@ -134,7 +134,7 @@ function Feed(props) {
     if (displayStories) {
       return (
         <View style={styles.storiesToggleContainer}>
-          <View style={iconStories}>
+          <View style={styles.iconStories}>
             <TNTouchableIcon
               iconSource={
                 isShowingStories
@@ -205,7 +205,6 @@ function Feed(props) {
     <>
       <View style={styles.feedContainer}>
         <RenderListHeader />
-
         <Viewport.Tracker>
           <FlatList
             ref={(ref) => {

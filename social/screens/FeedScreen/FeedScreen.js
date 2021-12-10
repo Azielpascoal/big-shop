@@ -542,7 +542,7 @@ const FeedScreen = (props) => {
           <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
             iconSource={AppStyles.iconSet.inscription}
-            onPress={toggleMediaComposer}
+            //onPress={toggleMediaComposer}
             onPress={() => props.navigation.navigate('CreatePost')}
             appStyles={AppStyles}
           />

@@ -156,6 +156,10 @@ const iconSet = {
   arrowDown: require('../assets/icons/arrowDown.png'),
   chat: require('../assets/icons/chat.png'),
   plus: require('../assets/icons/plus.png'),
+  settings: require('../assets/icons/settings.png'),
+  followers: require('../assets/icons/add-user.png'),
+  profilePosts: require('../assets/icons/thumbnail.png'),
+  openGift: require('../assets/icons/valentine-giftbox-open.png'),
 };
 
 const fontFamily = {

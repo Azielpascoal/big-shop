@@ -39,6 +39,7 @@ const InnerFeedNavigator = () => {
         name="Feed"
         component={FeedScreen}
       />
+      <Stack.Screen name="FeedProfile" component={ProfileScreen} />
       <Stack.Screen
         name="FeedDetailPost"
         component={DetailPostScreen}
@@ -46,7 +47,6 @@ const InnerFeedNavigator = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="FeedProfile" component={ProfileScreen} />
       <Stack.Screen name="CreatePost" component={CreatePostScreen} />
       <Stack.Screen
         name="Messaging"

@@ -6,6 +6,7 @@ import MainStackNavigator from './MainStackNavigator';
 import LoginStack from './AuthStackNavigator';
 import InstagramCloneConfig from '../InstagramCloneConfig';
 import { NavigationContainer } from '@react-navigation/native';
+import ProfileScreen from '../screens/ProfileScreen/ProfileScreen';
 
 const Stack = createStackNavigator();
 

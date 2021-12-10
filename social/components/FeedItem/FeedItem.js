@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { useColorScheme } from 'react-native-appearance';
 import ActionSheet from 'react-native-actionsheet';
@@ -11,7 +11,7 @@ import { IMRichTextView } from '../../Core/mentions';
 import FeedMedia from './FeedMedia';
 import dynamicStyles from './styles';
 import AppStyles from '../../AppStyles';
-import { timeFormat } from '../../Core';
+import { timeFormat } from '../../Core/';
 import { IMLocalized } from '../../Core/localization/IMLocalization';
 
 const ViewportAwareSwiper = Viewport.Aware(Swiper);
@@ -164,10 +164,10 @@ function FeedItem(props) {
       onPress={didPressComment}
       style={[styles.container, containerStyle]}>
       {item.postMedia && item.postMedia.length > 0 && (
-        <View style={{ height: '100%' }}>
+        <View style={{ height: calcMediaHeight }}>
           <ViewportAwareSwiper
             removeClippedSubviews={false}
-            style={{ height: '100%' }}
+            style={{ height: calcMediaHeight }}
             dot={inactiveDot()}
             activeDot={activeDot()}
             paginationStyle={{
@@ -185,7 +185,6 @@ function FeedItem(props) {
                 index={index}
                 postMediaIndex={postMediaIndex}
                 media={media}
-                mediaStyle={{ borderRadius: 25 }}
                 item={item}
                 isLastItem={isLastItem}
                 onMediaResize={onMediaResize}
@@ -197,81 +196,26 @@ function FeedItem(props) {
           </ViewportAwareSwiper>
         </View>
       )}
-      <View style={styles.headerContainer}>
-        <View style={styles.subHeaderContainer}>
-          <TNStoryItem
-            imageStyle={styles.userImage}
-            imageContainerStyle={styles.userImageContainer}
-            containerStyle={styles.userImageMainContainer}
-            item={item.author}
-            onPress={onUserItemPress}
-            appStyles={AppStyles}
-          />
-          <View style={styles.textContainer}>
-            <Text style={styles.title}>
-              {item.author && item.author.firstName}
-            </Text>
-            <View style={styles.mainSubtitleContainer}>
-              <View style={[styles.subtitleContainer, { flex: 2 }]}>
-                <Text style={styles.subtitle}>{item.location}</Text>
-              </View>
-            </View>
-          </View>
-        </View>
-        <TNTouchableIcon
-          onPress={onMorePress}
-          imageStyle={styles.moreIcon}
-          containerStyle={styles.moreIconContainer}
-          iconSource={AppStyles.iconSet.more}
-          appStyles={AppStyles}
-        />
-      </View>
-      <View style={styles.footerContainer}>
-        <View style={styles.footerIconArea}>
-          <TNTouchableIcon
-            containerStyle={styles.footerIconContainer}
-            iconSource={AppStyles.iconSet[selectedIcon]}
-            imageStyle={[
-              styles.reactionIcon,
-              selectedIcon === 'heartUnfilled' && styles.tintColor,
-            ]}
-            renderTitle={true}
-            onPress={onReactionPress}
-            appStyles={AppStyles}
-          />
+
+      <View style={styles.textContainer}>
+        <View style={styles.headerContainer}>
           {reactionCount > 0 && (
             <Text style={[styles.body, styles.title]}>
               {reactionCount === 1
                 ? `${reactionCount} like`
-                : `${reactionCount} likes `}
+                : `${reactionCount} likes`}
             </Text>
           )}
+          <View>
+            <TNTouchableIcon
+              onPress={onMorePress}
+              imageStyle={styles.moreIcon}
+              containerStyle={styles.moreIconContainer}
+              iconSource={AppStyles.iconSet.more}
+              appStyles={AppStyles}
+            />
+          </View>
         </View>
-        <View style={styles.footerIconArea}>
-          <TNTouchableIcon
-            containerStyle={styles.footerIconContainer}
-            iconSource={AppStyles.iconSet.commentUnfilled}
-            imageStyle={[
-              styles.reactionIcon,
-              styles.tintColor,
-              { marginLeft: -8 },
-            ]}
-            renderTitle={true}
-            onPress={didPressComment}
-            appStyles={AppStyles}
-          />
-          {shouldDisplayViewAllComments && item.commentCount > 0 && (
-            <TouchableOpacity activeOpacity={1} onPress={didPressComment}>
-              <Text style={[styles.body, styles.title]}>
-                {item.commentCount === 1
-                  ? `${item.commentCount}`
-                  : `${item.commentCount}`}
-              </Text>
-            </TouchableOpacity>
-          )}
-        </View>
-      </View>
-      <View style={styles.textContainer}>
         <TruncateText
           numberOfLines={2}
           renderViewMore={renderViewMore}
@@ -284,10 +228,58 @@ function FeedItem(props) {
             <Text style={styles.title}>{item.firstName}</Text> {item.postText}
           </IMRichTextView>
         </TruncateText>
-
-        {/* <Text style={[styles.body, styles.subtitle]}>
+        {shouldDisplayViewAllComments && item.commentCount > 0 && (
+          <TouchableOpacity activeOpacity={1} onPress={didPressComment}>
+            <Text style={[styles.body, styles.subtitle]}>
+              {item.commentCount === 1
+                ? `View ${item.commentCount} comment`
+                : `View all ${item.commentCount} comments`}
+            </Text>
+          </TouchableOpacity>
+        )}
+        <Text style={[styles.body, styles.subtitle]}>
           {timeFormat(item.createdAt)}
-        </Text> */}
+        </Text>
+      </View>
+
+      <View style={styles.footerContainer}>
+        <TNStoryItem
+          imageStyle={styles.userImage}
+          imageContainerStyle={styles.userImageContainer}
+          containerStyle={styles.userImageMainContainer}
+          item={item.author}
+          onPress={onUserItemPress}
+          appStyles={AppStyles}
+        />
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>
+            {item.author && item.author.firstName}
+          </Text>
+          <View style={styles.mainSubtitleContainer}>
+            <View style={[styles.subtitleContainer, { flex: 2 }]}>
+              <Text style={styles.subtitle}>{item.location}</Text>
+            </View>
+          </View>
+        </View>
+        <TNTouchableIcon
+          containerStyle={styles.footerIconContainer}
+          iconSource={AppStyles.iconSet[selectedIcon]}
+          imageStyle={[
+            styles.footerIcon,
+            selectedIcon === 'heartUnfilled' && styles.tintColor,
+          ]}
+          renderTitle={true}
+          onPress={onReactionPress}
+          appStyles={AppStyles}
+        />
+        <TNTouchableIcon
+          containerStyle={styles.footerIconContainer}
+          iconSource={AppStyles.iconSet.commentUnfilled}
+          imageStyle={[styles.footerIcon, styles.tintColor, { marginLeft: -8 }]}
+          renderTitle={true}
+          onPress={didPressComment}
+          appStyles={AppStyles}
+        />
       </View>
 
       <ActionSheet

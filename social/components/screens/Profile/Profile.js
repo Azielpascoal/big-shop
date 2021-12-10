@@ -45,6 +45,7 @@ function Profile(props) {
     followersCount,
     postCount,
     onEmptyStatePress,
+    onPress,
   } = props;
 
   const updatePhotoDialogActionSheet = useRef();
@@ -145,38 +146,44 @@ function Profile(props) {
             textStyle={styles.userName}
             appStyles={AppStyles}
           />
-          <View style={styles.countItemsContainer}>
-            <TouchableOpacity activeOpacity={1} style={styles.countContainer}>
-              <Text style={styles.count}>{postCount}</Text>
-              <Text style={styles.countTitle}>
-                {postCount != 1 ? IMLocalized('Posts') : IMLocalized('Post')}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={onFollowersButtonPress}
-              style={styles.countContainer}>
-              <Text style={styles.count}>{followersCount}</Text>
-              <Text style={styles.countTitle}>
-                {followersCount != 1
-                  ? IMLocalized('Followers')
-                  : IMLocalized('Follower')}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={1}
-              onPress={onFollowingButtonPress}
-              style={styles.countContainer}>
-              <Text style={styles.count}>{followingCount}</Text>
-              <Text style={styles.countTitle}>{IMLocalized('Following')}</Text>
-            </TouchableOpacity>
-          </View>
         </View>
         <ProfileButton
           title={mainButtonTitle}
-          containerStyle={{ marginVertical: 40 }}
+          containerStyle={{ width: '25%' }}
           onPress={onMainButtonPress}
         />
+        <View style={styles.countItemsContainer}>
+          <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
+            <Text style={styles.count}>{postCount}</Text>
+            <Text style={[styles.countTitle]}>
+              {postCount != 1 ? IMLocalized('Posts') : IMLocalized('Post')}
+            </Text>
+          </TouchableOpacity>
+          <View>
+            <Text style={styles.countContainerBorder}></Text>
+          </View>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={onFollowersButtonPress}
+            style={styles.countContainer}>
+            <Text style={styles.count}>{followersCount}</Text>
+            <Text style={styles.countTitle}>
+              {followersCount != 1
+                ? IMLocalized('Followers')
+                : IMLocalized('Follower')}
+            </Text>
+          </TouchableOpacity>
+          <View>
+            <Text style={styles.countContainerBorder}></Text>
+          </View>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={onFollowingButtonPress}
+            style={styles.countContainer}>
+            <Text style={styles.count}>{followingCount}</Text>
+            <Text style={styles.countTitle}>{IMLocalized('Following')}</Text>
+          </TouchableOpacity>
+        </View>
         {loading ? (
           <View style={styles.container}>
             <ActivityIndicator
