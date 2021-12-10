@@ -37,6 +37,7 @@ function FeedItem(props) {
     shouldDisplayViewAllComments,
     onTextFieldUserPress,
     onTextFieldHashTagPress,
+    footerIconContainerView,
   } = props;
 
   const colorScheme = useColorScheme();
