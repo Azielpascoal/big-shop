@@ -34,6 +34,7 @@ const dynamicStyles = (colorScheme) => {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
+      marginBottom: 10,
     },
     countContainer: {
       paddingHorizontal: 10,
@@ -41,9 +42,9 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'center',
     },
     countContainerBorder: {
-      borderRightWidth: 3,
+      borderRightWidth: 1,
       width: 10,
-      height: 20,
+      height: 30,
       borderColor: AppStyles.colorSet[colorScheme].grey6,
     },
     userImage: {
@@ -105,8 +106,10 @@ const dynamicStyles = (colorScheme) => {
       margin: 2,
     },
     gridItemImage: {
-      height: '100%',
-      width: '100%',
+      height: '95%',
+      width: '80%',
+      borderRadius: 18,
+      marginLeft: 30,
     },
     FriendsTitle: {
       color: AppStyles.colorSet[colorScheme].mainTextColor,

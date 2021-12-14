@@ -418,7 +418,7 @@ class ProfileScreen extends Component {
       /* <-------- Component for the FAB button needs to be redone */
     }
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Profile
           loading={this.state.loading}
           uploadProgress={this.state.uploadProgress}
@@ -445,106 +445,108 @@ class ProfileScreen extends Component {
           navigation={this.props.navigation}
         />
         {/* Component for the FAB button ------> */}
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            alignItems: 'center',
-            backgroundColor: 'white',
-            borderRadius: 60,
-            shadowColor: '#171717',
-            shadowOffset: { width: -4, height: 4 },
-            shadowOpacity: 0.25,
-            shadowRadius: 1,
-            elevation: 6,
-            margin: 20,
-            width: 46,
-            height: 46,
-            justifyContent: 'center',
-          }}>
-          <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.settings}
-            onPress={this.onMainButtonPress}
-            appStyles={AppStyles}
-          />
-        </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 60,
-            right: 0,
-            alignItems: 'center',
-            backgroundColor: 'white',
-            borderRadius: 60,
-            shadowColor: '#171717',
-            shadowOffset: { width: -4, height: 4 },
-            shadowOpacity: 0.25,
-            shadowRadius: 1,
-            elevation: 6,
-            margin: 20,
-            width: 56,
-            height: 56,
-            justifyContent: 'center',
-          }}>
-          <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.openGift}
-            onPress={this.onMainButtonPress}
-            appStyles={AppStyles}
-          />
-        </View>
+        <View style={{ marginRight: '80%', marginBottom: 180 }}>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              right: 0,
+              alignItems: 'center',
+              backgroundColor: 'white',
+              borderRadius: 60,
+              shadowColor: '#171717',
+              shadowOffset: { width: -4, height: 4 },
+              shadowOpacity: 0.25,
+              shadowRadius: 1,
+              elevation: 6,
+              margin: 20,
+              width: 46,
+              height: 46,
+              justifyContent: 'center',
+            }}>
+            <TNTouchableIcon
+              imageStyle={{ tintColor: currentTheme.fontColor }}
+              iconSource={AppStyles.iconSet.settings}
+              onPress={this.onMainButtonPress}
+              appStyles={AppStyles}
+            />
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 60,
+              right: 0,
+              alignItems: 'center',
+              backgroundColor: 'white',
+              borderRadius: 60,
+              shadowColor: '#171717',
+              shadowOffset: { width: -4, height: 4 },
+              shadowOpacity: 0.25,
+              shadowRadius: 1,
+              elevation: 6,
+              margin: 20,
+              width: 56,
+              height: 56,
+              justifyContent: 'center',
+            }}>
+            <TNTouchableIcon
+              imageStyle={{ tintColor: currentTheme.fontColor }}
+              iconSource={AppStyles.iconSet.openGift}
+              onPress={this.onMainButtonPress}
+              appStyles={AppStyles}
+            />
+          </View>
 
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 120,
-            right: 0,
-            alignItems: 'center',
-            backgroundColor: 'white',
-            borderRadius: 60,
-            shadowColor: '#171717',
-            shadowOffset: { width: -4, height: 4 },
-            shadowOpacity: 0.25,
-            shadowRadius: 1,
-            elevation: 6,
-            margin: 20,
-            width: 56,
-            height: 56,
-            justifyContent: 'center',
-          }}>
-          <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.giftbox}
-            onPress={this.onMainButtonPress}
-            appStyles={AppStyles}
-          />
-        </View>
-        <View
-          style={{
-            position: 'absolute',
-            bottom: 180,
-            right: 0,
-            alignItems: 'center',
-            backgroundColor: 'white',
-            borderRadius: 60,
-            shadowColor: '#171717',
-            shadowOffset: { width: -4, height: 4 },
-            shadowOpacity: 0.25,
-            shadowRadius: 1,
-            elevation: 6,
-            margin: 20,
-            width: 56,
-            height: 56,
-            justifyContent: 'center',
-          }}>
-          <TNTouchableIcon
-            imageStyle={{ tintColor: currentTheme.fontColor }}
-            iconSource={AppStyles.iconSet.profilePosts}
-            onPress={this.onMainButtonPress}
-            appStyles={AppStyles}
-          />
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 120,
+              right: 0,
+              alignItems: 'center',
+              backgroundColor: 'white',
+              borderRadius: 60,
+              shadowColor: '#171717',
+              shadowOffset: { width: -4, height: 4 },
+              shadowOpacity: 0.25,
+              shadowRadius: 1,
+              elevation: 6,
+              margin: 20,
+              width: 56,
+              height: 56,
+              justifyContent: 'center',
+            }}>
+            <TNTouchableIcon
+              imageStyle={{ tintColor: currentTheme.fontColor }}
+              iconSource={AppStyles.iconSet.giftbox}
+              onPress={this.onMainButtonPress}
+              appStyles={AppStyles}
+            />
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              bottom: 180,
+              right: 0,
+              alignItems: 'center',
+              backgroundColor: 'white',
+              borderRadius: 60,
+              shadowColor: '#171717',
+              shadowOffset: { width: -4, height: 4 },
+              shadowOpacity: 0.25,
+              shadowRadius: 1,
+              elevation: 6,
+              margin: 20,
+              width: 56,
+              height: 56,
+              justifyContent: 'center',
+            }}>
+            <TNTouchableIcon
+              imageStyle={{ tintColor: currentTheme.fontColor }}
+              iconSource={AppStyles.iconSet.profilePosts}
+              onPress={this.onMainButtonPress}
+              appStyles={AppStyles}
+            />
+          </View>
         </View>
         {/* <-------- Component for the FAB button needs to be redone */}
       </View>

@@ -147,11 +147,13 @@ function Profile(props) {
             appStyles={AppStyles}
           />
         </View>
-        <ProfileButton
+
+        {/* comentado por Aziel já que temos o settings no componente FAB*/}
+        {/* <ProfileButton 
           title={mainButtonTitle}
-          containerStyle={{ width: '25%' }}
+          containerStyle={{ width: '30%' }}
           onPress={onMainButtonPress}
-        />
+        /> */}
         <View style={styles.countItemsContainer}>
           <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
             <Text style={styles.count}>{postCount}</Text>
@@ -234,7 +236,7 @@ function Profile(props) {
           ListHeaderComponent={renderListHeader}
           ListFooterComponent={renderListFooter}
           ListEmptyComponent={renderEmptyComponent}
-          style={{ width: '97%' }}
+          style={{ width: '77%', alignSelf: 'center' }}
           showsVerticalScrollIndicator={false}
         />
       )}
