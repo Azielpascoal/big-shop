@@ -147,6 +147,7 @@ function Profile(props) {
             appStyles={AppStyles}
           />
         </View>
+
         {loading ? (
           <View style={styles.container}>
             <ActivityIndicator
@@ -171,6 +172,7 @@ function Profile(props) {
           justifyContent: 'flex-end',
           flexDirection: 'row',
         }}>
+
         <View style={styles.countItemsContainer}>
           <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
             {/* Add icon posts items here... */}
@@ -234,6 +236,7 @@ function Profile(props) {
     );
   };
   return (
+
     <View style={{ flex: 1, flexDirection: 'row' }}>
       <RenderNavigationOptions />
       <View style={styles.container}>
@@ -254,6 +257,7 @@ function Profile(props) {
             showsVerticalScrollIndicator={false}
           />
         )}
+
 
         <TNMediaViewerModal
           mediaItems={feedItems}

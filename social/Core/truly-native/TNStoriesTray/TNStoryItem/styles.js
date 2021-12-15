@@ -29,10 +29,11 @@ const dynamicStyles = (appStyles, colorScheme) => {
       overflow: 'hidden',
     },
     text: {
-      fontSize: 12,
+      fontSize: 14,
       textAlign: 'center',
       color: appStyles.colorSet[colorScheme].mainSubtextColor,
       paddingTop: 5,
+      fontWeight: 'bold',
     },
     isOnlineIndicator: {
       position: 'absolute',

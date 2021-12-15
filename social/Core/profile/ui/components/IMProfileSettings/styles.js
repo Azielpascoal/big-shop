@@ -4,7 +4,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
   return StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: appStyles.colorSet[colorScheme].whiteSmoke,
+      backgroundColor: appStyles.colorSet[colorScheme].bottomStyleColor,
     },
     //Profile Settings
     settingsTitleContainer: {
@@ -20,17 +20,21 @@ const dynamicStyles = (appStyles, colorScheme) => {
       fontWeight: '500',
     },
     settingsTypesContainer: {
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      width: '96%',
+      alignSelf: 'center',
+      marginTop: 10,
     },
     settingsTypeContainer: {
-      borderBottomColor: appStyles.colorSet[colorScheme].whiteSmoke,
-      borderBottomWidth: 1,
+      borderColor: appStyles.colorSet[colorScheme].grey6,
+      borderWidth: 1,
       justifyContent: 'center',
       alignItems: 'center',
       height: 50,
+      marginTop: 10,
+      borderRadius: 12,
     },
     settingsType: {
-      color: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      color: appStyles.colorSet[colorScheme].mainSubtextColor,
       fontSize: 14,
       fontWeight: '500',
     },
