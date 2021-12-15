@@ -35,6 +35,9 @@ const styles = new StyleSheet.create({
   userImageMainContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#4852D9',
+    borderRadius: 50,
   },
 });
 

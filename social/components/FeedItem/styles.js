@@ -10,15 +10,17 @@ const dynamicStyles = (colorScheme) => {
       // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.97),
       width: '100%',
       alignSelf: 'center',
-      // marginVertical: 3,
-      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
-      borderBottomWidth: 6,
-      borderBottomColor: AppStyles.colorSet[colorScheme].grey6,
+      backgroundColor: 'blue',
+      marginBottom: 9,
+      borderRadius: 25,
     },
     headerContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      position: 'absolute',
+      left: 0,
+      top: 10,
     },
     userImage: {
       width: imageWidth,
@@ -30,15 +32,18 @@ const dynamicStyles = (colorScheme) => {
       width: imageWidth,
       height: imageWidth,
       borderWidth: 0,
-      margin: 2,
     },
     userImageMainContainer: {
       alignItems: 'center',
       justifyContent: 'center',
     },
     textContainer: {
-      flex: 6,
-      marginTop: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    reactionTextContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
       justifyContent: 'center',
     },
     mainSubtitleContainer: {
@@ -49,9 +54,20 @@ const dynamicStyles = (colorScheme) => {
       flex: 1.3,
     },
     title: {
-      color: AppStyles.colorSet[colorScheme].mainTextColor,
-      fontSize: 14,
+      color: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      fontSize: 18,
+      fontStyle: 'normal',
+      fontWeight: 'bold',
+      lineHeight: 27,
+      textShadowColor: AppStyles.colorSet[colorScheme].mainTextColor,
+      textShadowOffset: { width: 0.1, height: 0.1 },
+      textShadowRadius: 0.5,
+    },
+    iconTitle: {
+      color: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      fontSize: 16,
       fontWeight: '600',
+      lineHeight: 20,
     },
     subtitle: {
       color: AppStyles.colorSet[colorScheme].mainSubtextColor,
@@ -62,7 +78,6 @@ const dynamicStyles = (colorScheme) => {
       fontSize: 12,
       lineHeight: 18,
       paddingBottom: 7,
-      paddingHorizontal: 12,
     },
     moreText: {
       color: AppStyles.colorSet[colorScheme].mainThemeForegroundColor,
@@ -76,9 +91,9 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'flex-end',
     },
     moreIcon: {
-      height: 18,
-      width: 18,
-      tintColor: AppStyles.colorSet[colorScheme].mainSubtextColor,
+      height: 20,
+      width: 20,
+      tintColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       margin: 0,
     },
     bodyTitleContainer: {
@@ -91,6 +106,7 @@ const dynamicStyles = (colorScheme) => {
       height: '100%',
       width: '100%',
       backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
+      borderRadius: 25,
     },
     inactiveDot: {
       backgroundColor: 'rgba(255,255,255,.3)',
@@ -136,19 +152,27 @@ const dynamicStyles = (colorScheme) => {
       height: reactionIconSize,
       margin: 0,
     },
+    // masearuments need to be put right for any screen.
     footerContainer: {
       flexDirection: 'row',
+      position: 'absolute',
+      left: 0,
+      top: 420,
+      margin: 8,
     },
     footerIconContainer: {
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: 0,
+      backgroundColor: 'rgba(9,9,9,.3)',
+      marginRight: 10,
+      borderRadius: 10,
+      width: 100,
+      height: 30,
     },
     footerIcon: {
-      margin: 3,
-      height: 25,
-      width: 25,
+      height: 20,
+      width: 20,
     },
     mediaVideoLoader: {
       position: 'absolute',
@@ -174,7 +198,9 @@ const dynamicStyles = (colorScheme) => {
       width: 19,
       height: 19,
     },
-    tintColor: { tintColor: AppStyles.colorSet[colorScheme].mainTextColor },
+    tintColor: {
+      tintColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+    },
   });
 };
 

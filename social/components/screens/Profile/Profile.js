@@ -147,43 +147,6 @@ function Profile(props) {
             appStyles={AppStyles}
           />
         </View>
-        <ProfileButton
-          title={mainButtonTitle}
-          containerStyle={{ width: '25%' }}
-          onPress={onMainButtonPress}
-        />
-        <View style={styles.countItemsContainer}>
-          <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
-            <Text style={styles.count}>{postCount}</Text>
-            <Text style={[styles.countTitle]}>
-              {postCount != 1 ? IMLocalized('Posts') : IMLocalized('Post')}
-            </Text>
-          </TouchableOpacity>
-          <View>
-            <Text style={styles.countContainerBorder}></Text>
-          </View>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={onFollowersButtonPress}
-            style={styles.countContainer}>
-            <Text style={styles.count}>{followersCount}</Text>
-            <Text style={styles.countTitle}>
-              {followersCount != 1
-                ? IMLocalized('Followers')
-                : IMLocalized('Follower')}
-            </Text>
-          </TouchableOpacity>
-          <View>
-            <Text style={styles.countContainerBorder}></Text>
-          </View>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={onFollowingButtonPress}
-            style={styles.countContainer}>
-            <Text style={styles.count}>{followingCount}</Text>
-            <Text style={styles.countTitle}>{IMLocalized('Following')}</Text>
-          </TouchableOpacity>
-        </View>
         {loading ? (
           <View style={styles.container}>
             <ActivityIndicator
@@ -194,6 +157,57 @@ function Profile(props) {
         ) : (
           <View style={styles.FriendsContainer}></View>
         )}
+      </View>
+    );
+  };
+
+  const RenderNavigationOptions = () => {
+    return (
+      <View
+        style={{
+          backgroundColor: 'green',
+          height: '100%',
+          width: '20%',
+          justifyContent: 'flex-end',
+          flexDirection: 'row',
+        }}>
+        <View style={styles.countItemsContainer}>
+          <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
+            {/* Add icon posts items here... */}
+            <Text style={styles.count}>{postCount}</Text>
+            <Text style={[styles.countTitle]}>
+              {postCount != 1 ? IMLocalized('Posts') : IMLocalized('Post')}
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={onFollowersButtonPress}
+            style={styles.countContainer}>
+            {/* Add icon followers here... */}
+            <Text style={styles.count}>{followersCount}</Text>
+            <Text style={styles.countTitle}>
+              {followersCount != 1
+                ? IMLocalized('Followers')
+                : IMLocalized('Follower')}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={1}
+            onPress={onFollowingButtonPress}
+            style={styles.countContainer}>
+            {/* Add following icon here... */}
+            <Text style={styles.count}>{followingCount}</Text>
+            <Text style={styles.countTitle}>{IMLocalized('Following')}</Text>
+          </TouchableOpacity>
+          {/* Change profile buton to icon */}
+          {/* Icon should be settings icon or message icon.. check on is displayed in ProfileScreen */}
+          <ProfileButton
+            title={mainButtonTitle}
+            containerStyle={{ width: '25%', marginTop: 25 }}
+            onPress={onMainButtonPress}
+          />
+        </View>
       </View>
     );
   };
@@ -220,54 +234,57 @@ function Profile(props) {
     );
   };
   return (
-    <View style={styles.container}>
-      <View style={[styles.progressBar, { width: `${uploadProgress}%` }]} />
-      {recentUserFeeds && (
-        <FlatList
-          data={recentUserFeeds}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          onEndReachedThreshold={0.5}
-          numColumns={3}
-          horizontal={false}
-          onEndReached={handleOnEndReached}
-          ListHeaderComponent={renderListHeader}
-          ListFooterComponent={renderListFooter}
-          ListEmptyComponent={renderEmptyComponent}
-          style={{ width: '97%' }}
-          showsVerticalScrollIndicator={false}
-        />
-      )}
+    <View style={{ flex: 1, flexDirection: 'row' }}>
+      <RenderNavigationOptions />
+      <View style={styles.container}>
+        <View style={[styles.progressBar, { width: `${uploadProgress}%` }]} />
+        {recentUserFeeds && (
+          <FlatList
+            data={recentUserFeeds}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            onEndReachedThreshold={0.5}
+            numColumns={3}
+            horizontal={false}
+            onEndReached={handleOnEndReached}
+            ListHeaderComponent={renderListHeader}
+            ListFooterComponent={renderListFooter}
+            ListEmptyComponent={renderEmptyComponent}
+            style={{ width: '97%' }}
+            showsVerticalScrollIndicator={false}
+          />
+        )}
 
-      <TNMediaViewerModal
-        mediaItems={feedItems}
-        isModalOpen={isMediaViewerOpen}
-        onClosed={onMediaClose}
-        selectedMediaIndex={selectedMediaIndex}
-      />
-      <ActionSheet
-        ref={updatePhotoDialogActionSheet}
-        title={IMLocalized('Profile Picture')}
-        options={[
-          IMLocalized('Change Photo'),
-          IMLocalized('Remove'),
-          IMLocalized('Cancel'),
-        ]}
-        cancelButtonIndex={2}
-        destructiveButtonIndex={1}
-        onPress={onUpdatePhotoDialogDone}
-      />
-      <ActionSheet
-        ref={photoUploadDialogActionSheet}
-        title={IMLocalized('Select Photo')}
-        options={[
-          IMLocalized('Camera'),
-          IMLocalized('Library'),
-          IMLocalized('Cancel'),
-        ]}
-        cancelButtonIndex={2}
-        onPress={onPhotoUploadDialogDone}
-      />
+        <TNMediaViewerModal
+          mediaItems={feedItems}
+          isModalOpen={isMediaViewerOpen}
+          onClosed={onMediaClose}
+          selectedMediaIndex={selectedMediaIndex}
+        />
+        <ActionSheet
+          ref={updatePhotoDialogActionSheet}
+          title={IMLocalized('Profile Picture')}
+          options={[
+            IMLocalized('Change Photo'),
+            IMLocalized('Remove'),
+            IMLocalized('Cancel'),
+          ]}
+          cancelButtonIndex={2}
+          destructiveButtonIndex={1}
+          onPress={onUpdatePhotoDialogDone}
+        />
+        <ActionSheet
+          ref={photoUploadDialogActionSheet}
+          title={IMLocalized('Select Photo')}
+          options={[
+            IMLocalized('Camera'),
+            IMLocalized('Library'),
+            IMLocalized('Cancel'),
+          ]}
+          cancelButtonIndex={2}
+          onPress={onPhotoUploadDialogDone}
+        />
+      </View>
     </View>
   );
 }
