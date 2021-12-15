@@ -1,12 +1,6 @@
-import React, { useRef, useState } from 'react';
-import {
-  FlatList,
-  View,
-  ActivityIndicator,
-  Dimensions,
-  Text,
-} from 'react-native';
-import { useColorScheme, Appearance } from 'react-native-appearance';
+import React, { useRef } from 'react';
+import { FlatList, View, ActivityIndicator, Dimensions } from 'react-native';
+import { useColorScheme } from 'react-native-appearance';
 import { Viewport } from '@skele/components';
 import FeedItem from '../../FeedItem/FeedItem';
 import PropTypes from 'prop-types';
@@ -18,7 +12,6 @@ import { TNEmptyStateView } from '../../../Core/truly-native';
 import { IMLocalized } from '../../../Core/localization/IMLocalization';
 import MediaComposer from '../../../instagram-composer';
 import AppStyles from '../../../AppStyles';
-import { TNTouchableIcon } from '../../../Core/truly-native';
 
 const HEIGHT = Dimensions.get('window').height;
 
@@ -125,45 +118,24 @@ function Feed(props) {
     );
   };
 
-  // stories state manager
-  const [isShowingStories, setIsShowingStories] = useState(false);
-
-  const RenderListHeader = () => {
-    let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
-    let COLOR_SCHEME = Appearance.getColorScheme();
+  const renderListHeader = () => {
     if (displayStories) {
       return (
-        <View style={styles.storiesToggleContainer}>
-          <View style={styles.iconStories}>
-            <TNTouchableIcon
-              iconSource={
-                isShowingStories
-                  ? AppStyles.iconSet.arrowDown
-                  : AppStyles.iconSet.arrowUp
-              }
-              onPress={() => setIsShowingStories(!isShowingStories)}
-              appStyles={AppStyles}
-            />
-            {isShowingStories && (
-              <FullStories
-                ref={fullStoryRef}
-                user={user}
-                shouldEmptyStories={shouldEmptyStories}
-                isStoryUpdating={isStoryUpdating}
-                onUserItemPress={onUserItemPress}
-                stories={stories}
-                userStories={userStories}
-                appStyles={AppStyles}
-              />
-            )}
-          </View>
-        </View>
+        <FullStories
+          ref={fullStoryRef}
+          user={user}
+          shouldEmptyStories={shouldEmptyStories}
+          isStoryUpdating={isStoryUpdating}
+          onUserItemPress={onUserItemPress}
+          stories={stories}
+          userStories={userStories}
+          appStyles={AppStyles}
+        />
       );
     }
     return null;
   };
 
-  //replace indicator with splash screen
   const renderListFooter = () => {
     if (isFetching) {
       return <ActivityIndicator style={{ marginVertical: 7 }} size="small" />;
@@ -202,48 +174,46 @@ function Feed(props) {
   }
 
   return (
-    <>
-      <View style={styles.feedContainer}>
-        <RenderListHeader />
-        <Viewport.Tracker>
-          <FlatList
-            ref={(ref) => {
-              if (feedRef) {
-                feedRef.current = ref;
-              }
-            }}
-            scrollEventThrottle={16}
-            onScroll={onFeedScroll}
-            showsVerticalScrollIndicator={false}
-            getItemLayout={getItemLayout}
-            ListFooterComponent={renderListFooter}
-            ListEmptyComponent={renderEmptyComponent}
-            data={feed}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            onEndReachedThreshold={0.5}
-            onEndReached={handleOnEndReached}
-          />
-        </Viewport.Tracker>
-        <IMCameraModal
-          isCameraOpen={isCameraOpen}
-          onImagePost={onImagePost}
-          onCameraClose={onCameraClose}
+    <View style={styles.feedContainer}>
+      <Viewport.Tracker>
+        <FlatList
+          ref={(ref) => {
+            if (feedRef) {
+              feedRef.current = ref;
+            }
+          }}
+          scrollEventThrottle={16}
+          onScroll={onFeedScroll}
+          showsVerticalScrollIndicator={false}
+          getItemLayout={getItemLayout}
+          ListHeaderComponent={renderListHeader}
+          ListFooterComponent={renderListFooter}
+          ListEmptyComponent={renderEmptyComponent}
+          data={feed}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          onEndReachedThreshold={0.5}
+          onEndReached={handleOnEndReached}
         />
-        <TNMediaViewerModal
-          mediaItems={feedItems}
-          isModalOpen={isMediaViewerOpen}
-          onClosed={onMediaClose}
-          selectedMediaIndex={selectedMediaIndex}
-        />
-        <MediaComposer
-          visible={isMediaComposerVisible}
-          onDismiss={onMediaComposerDismiss}
-          onSharePost={onShareMediaPost}
-          navigation={navigation}
-        />
-      </View>
-    </>
+      </Viewport.Tracker>
+      <IMCameraModal
+        isCameraOpen={isCameraOpen}
+        onImagePost={onImagePost}
+        onCameraClose={onCameraClose}
+      />
+      <TNMediaViewerModal
+        mediaItems={feedItems}
+        isModalOpen={isMediaViewerOpen}
+        onClosed={onMediaClose}
+        selectedMediaIndex={selectedMediaIndex}
+      />
+      <MediaComposer
+        visible={isMediaComposerVisible}
+        onDismiss={onMediaComposerDismiss}
+        onSharePost={onShareMediaPost}
+        navigation={navigation}
+      />
+    </View>
   );
   // }
 }

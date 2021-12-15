@@ -32,7 +32,6 @@ import { IMLocalized } from '../../Core/localization/IMLocalization';
 import { TNTouchableIcon, TNStoryItem } from '../../Core/truly-native';
 import { reportingManager } from '../../Core/user-reporting';
 import { Appearance } from 'react-native-appearance';
-import LinearGradientColor from '../../components/LinearGradient/LinearGradient';
 
 const FeedScreen = (props) => {
   const currentUser = useSelector((state) => state.auth.user);
@@ -517,13 +516,6 @@ const FeedScreen = (props) => {
               </MenuOptions>
             </Menu>
           )}
-          {/* <TNTouchableIcon
-            imageStyle={{ tintColor: '#919191' }}
-            iconSource={AppStyles.iconSet.giftbox}
-            //onPress={onChatPress}
-            onPress={() => props.navigation.navigate('FeedNotification')}
-            appStyles={AppStyles}
-          /> */}
 
           <TNTouchableIcon
             imageStyle={{ tintColor: '#919191' }}
@@ -532,13 +524,7 @@ const FeedScreen = (props) => {
             onPress={() => props.navigation.navigate('Messaging')}
             appStyles={AppStyles}
           />
-          <TNTouchableIcon
-            imageStyle={{ tintColor: '#919191' }}
-            iconSource={AppStyles.iconSet.bell}
-            //onPress={onChatPress}
-            onPress={() => props.navigation.navigate('FeedNotification')}
-            appStyles={AppStyles}
-          />
+
           <TNTouchableIcon
             imageStyle={{ tintColor: currentTheme.fontColor }}
             iconSource={AppStyles.iconSet.inscription}
