@@ -379,177 +379,32 @@ class ProfileScreen extends Component {
       }
     }
 
-    {
-      /*  Component for the FAB button needs to be redone --------> */
-    }
-    const cameraStyle = {
-      transform: [
-        { scale: this.animation },
-        {
-          translateY: this.animation.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, -25],
-          }),
-        },
-      ],
-    };
-    const likesStyle = {
-      transform: [
-        { scale: this.animation },
-        {
-          translateY: this.animation.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, -50],
-          }),
-        },
-      ],
-    };
-    const rotation = {
-      transform: [
-        {
-          rotate: this.animation.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '45deg'],
-          }),
-        },
-      ],
-    };
-    {
-      /* <-------- Component for the FAB button needs to be redone */
-    }
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Profile
-          loading={this.state.loading}
-          uploadProgress={this.state.uploadProgress}
-          user={this.otherUser ? this.otherUser : this.props.user}
-          mainButtonTitle={mainButtonTitle}
-          followingCount={this.state.outboundFriendsCount}
-          followersCount={this.state.inboundFriendsCount}
-          postCount={postsCount}
-          recentUserFeeds={this.state.profilePosts}
-          onMainButtonPress={this.onMainButtonPress}
-          selectedMediaIndex={this.state.selectedMediaIndex}
-          onPostPress={this.onPostPress}
-          isMediaViewerOpen={this.state.isMediaViewerOpen}
-          feedItems={this.state.selectedFeedItems}
-          onMediaClose={this.onMediaClose}
-          removePhoto={this.removePhoto}
-          startUpload={this.startUpload}
-          handleOnEndReached={this.handleOnEndReached}
-          isFetching={this.state.isFetching}
-          isOtherUser={this.otherUser}
-          onFollowersButtonPress={this.onFollowersButtonPress}
-          onFollowingButtonPress={this.onFollowingButtonPress}
-          onEmptyStatePress={this.onEmptyStatePress}
-          navigation={this.props.navigation}
-        />
-        {/* Component for the FAB button ------> */}
-        <View style={{ marginRight: '80%', marginBottom: 180 }}>
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              right: 0,
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderRadius: 60,
-              shadowColor: '#171717',
-              shadowOffset: { width: -4, height: 4 },
-              shadowOpacity: 0.25,
-              shadowRadius: 1,
-              elevation: 6,
-              margin: 20,
-              width: 46,
-              height: 46,
-              justifyContent: 'center',
-            }}>
-            <TNTouchableIcon
-              imageStyle={{ tintColor: currentTheme.fontColor }}
-              iconSource={AppStyles.iconSet.settings}
-              onPress={this.onMainButtonPress}
-              appStyles={AppStyles}
-            />
-          </View>
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 60,
-              right: 0,
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderRadius: 60,
-              shadowColor: '#171717',
-              shadowOffset: { width: -4, height: 4 },
-              shadowOpacity: 0.25,
-              shadowRadius: 1,
-              elevation: 6,
-              margin: 20,
-              width: 56,
-              height: 56,
-              justifyContent: 'center',
-            }}>
-            <TNTouchableIcon
-              imageStyle={{ tintColor: currentTheme.fontColor }}
-              iconSource={AppStyles.iconSet.openGift}
-              onPress={this.onMainButtonPress}
-              appStyles={AppStyles}
-            />
-          </View>
-
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 120,
-              right: 0,
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderRadius: 60,
-              shadowColor: '#171717',
-              shadowOffset: { width: -4, height: 4 },
-              shadowOpacity: 0.25,
-              shadowRadius: 1,
-              elevation: 6,
-              margin: 20,
-              width: 56,
-              height: 56,
-              justifyContent: 'center',
-            }}>
-            <TNTouchableIcon
-              imageStyle={{ tintColor: currentTheme.fontColor }}
-              iconSource={AppStyles.iconSet.giftbox}
-              onPress={this.onMainButtonPress}
-              appStyles={AppStyles}
-            />
-          </View>
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 180,
-              right: 0,
-              alignItems: 'center',
-              backgroundColor: 'white',
-              borderRadius: 60,
-              shadowColor: '#171717',
-              shadowOffset: { width: -4, height: 4 },
-              shadowOpacity: 0.25,
-              shadowRadius: 1,
-              elevation: 6,
-              margin: 20,
-              width: 56,
-              height: 56,
-              justifyContent: 'center',
-            }}>
-            <TNTouchableIcon
-              imageStyle={{ tintColor: currentTheme.fontColor }}
-              iconSource={AppStyles.iconSet.profilePosts}
-              onPress={this.onMainButtonPress}
-              appStyles={AppStyles}
-            />
-          </View>
-        </View>
-        {/* <-------- Component for the FAB button needs to be redone */}
-      </View>
+      <Profile
+        loading={this.state.loading}
+        uploadProgress={this.state.uploadProgress}
+        user={this.otherUser ? this.otherUser : this.props.user}
+        mainButtonTitle={mainButtonTitle}
+        followingCount={this.state.outboundFriendsCount}
+        followersCount={this.state.inboundFriendsCount}
+        postCount={postsCount}
+        recentUserFeeds={this.state.profilePosts}
+        onMainButtonPress={this.onMainButtonPress}
+        selectedMediaIndex={this.state.selectedMediaIndex}
+        onPostPress={this.onPostPress}
+        isMediaViewerOpen={this.state.isMediaViewerOpen}
+        feedItems={this.state.selectedFeedItems}
+        onMediaClose={this.onMediaClose}
+        removePhoto={this.removePhoto}
+        startUpload={this.startUpload}
+        handleOnEndReached={this.handleOnEndReached}
+        isFetching={this.state.isFetching}
+        isOtherUser={this.otherUser}
+        onFollowersButtonPress={this.onFollowersButtonPress}
+        onFollowingButtonPress={this.onFollowingButtonPress}
+        onEmptyStatePress={this.onEmptyStatePress}
+        navigation={this.props.navigation}
+      />
     );
   }
 }

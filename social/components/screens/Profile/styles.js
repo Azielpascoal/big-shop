@@ -9,7 +9,7 @@ const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      backgroundColor: 'blue',
       alignItems: 'center',
     },
     progressBar: {
@@ -21,9 +21,8 @@ const dynamicStyles = (colorScheme) => {
       borderTopColor: 'black',
     },
     subContainer: {
-      flex: 1,
-      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
-      alignItems: 'center',
+      backgroundColor: 'red',
+      alignItems: 'flex-start',
       marginBottom: 10,
       // width: '100%',
     },
@@ -31,8 +30,7 @@ const dynamicStyles = (colorScheme) => {
       // width: '100%',
     },
     countItemsContainer: {
-      flexDirection: 'row',
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       marginBottom: 10,
     },
@@ -95,8 +93,8 @@ const dynamicStyles = (colorScheme) => {
       fontWeight: '600',
     },
     gridItemContainer: {
-      height: Math.floor(AppStyles.WINDOW_HEIGHT * 0.18),
-      width: Math.floor(AppStyles.WINDOW_WIDTH * 0.318),
+      height: Math.floor(AppStyles.WINDOW_HEIGHT * 0.19),
+      width: Math.floor(AppStyles.WINDOW_WIDTH * 0.256),
       // width: Math.floor(AppStyles.WINDOW_WIDTH * 0.324),
       // borderRadius: Math.floor(AppStyles.WINDOW_WIDTH * 0.013),
       backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
@@ -104,12 +102,15 @@ const dynamicStyles = (colorScheme) => {
       alignItems: 'center',
       overflow: 'hidden',
       margin: 2,
+      borderRadius: 25,
     },
+
     gridItemImage: {
-      height: '95%',
-      width: '80%',
-      borderRadius: 18,
-      marginLeft: 30,
+
+      height: '100%',
+      width: '100%',
+      borderRadius: 25,
+
     },
     FriendsTitle: {
       color: AppStyles.colorSet[colorScheme].mainTextColor,

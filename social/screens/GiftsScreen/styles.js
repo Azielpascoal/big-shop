@@ -2,32 +2,20 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   mainContainer: {
-    alignItems: 'center',
-    position: 'absolute',
-    bottom: 10,
-    right: 15,
+    flex: 1,
+    backgroundColor: 'blue',
   },
-  button: {
-    //position: 'absolute',
-    width: 60,
-    height: 60,
-    borderRadius: 60 / 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowRadius: 10,
-    shadowOpacity: 0.3,
-    shadowOffset: {
-      height: 10,
-    },
+  headerContainer: {
+    flex: 0.25,
+    backgroundColor: 'yellow',
   },
-  menu: {
-    backgroundColor: '#00213b',
+  navigationContainer: {
+    flex: 0.25,
+    backgroundColor: 'green',
   },
-  submenu: {
-    width: 48,
-    height: 48,
-    backgroundColor: '#00213b',
+  dataRenderingContainer: {
+    flex: 1,
+    backgroundColor: 'red',
   },
 });
 
