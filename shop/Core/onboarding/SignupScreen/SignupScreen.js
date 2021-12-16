@@ -41,34 +41,29 @@ const SignupScreen = (props) => {
     let reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return reg.test(String(text).toLowerCase()) ? true : false;
   };
-  
+
   const validatePassword = (text) => {
     let reg = /^(?=.*[A-Z])(?=.*[a-z])/;
     return reg.test(String(text)) ? true : false;
   };
-  
-  const onRegister = () => {
 
-    if(!validateEmail(email?.trim())) {
+  const onRegister = () => {
+    if (!validateEmail(email?.trim())) {
       Alert.alert(
         '',
-        IMLocalized(
-          'Please enter a valid email address.',
-        ),
+        IMLocalized('Please enter a valid email address.'),
         [{ text: IMLocalized('OK') }],
         {
           cancelable: false,
         },
       );
       return;
-    };
+    }
 
     if (password?.trim() == '') {
       Alert.alert(
         '',
-        IMLocalized(
-          'Password cannot be empty.',
-        ),
+        IMLocalized('Password cannot be empty.'),
         [{ text: IMLocalized('OK') }],
         {
           cancelable: false,
@@ -76,7 +71,7 @@ const SignupScreen = (props) => {
       );
       setPassword('');
       return;
-    };
+    }
 
     if (password?.trim()?.length < 6) {
       Alert.alert(
@@ -91,7 +86,7 @@ const SignupScreen = (props) => {
       );
       setPassword('');
       return;
-    };
+    }
 
     // if (!validatePassword(password)) {
     //   Alert.alert(
@@ -227,7 +222,11 @@ const SignupScreen = (props) => {
             </Button>
           </>
         )}
-        <TermsOfUseView tosLink={appConfig.tosLink} privacyPolicyLink={appConfig.privacyPolicyLink} style={styles.tos} />
+        <TermsOfUseView
+          tosLink={appConfig.tosLink}
+          privacyPolicyLink={appConfig.privacyPolicyLink}
+          style={styles.tos}
+        />
       </KeyboardAwareScrollView>
       {loading && <TNActivityIndicator appStyles={appStyles} />}
     </View>

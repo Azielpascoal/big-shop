@@ -205,7 +205,7 @@ const SignupScreen = (props) => {
           containerStyle={styles.signupContainer}
           style={styles.signupText}
           onPress={() => onRegister()}>
-          {IMLocalized('Sign Up')}
+          {IMLocalized('Criar Conta')}
         </Button>
       </>
     );
@@ -232,13 +232,16 @@ const SignupScreen = (props) => {
             }
           />
         </View>
-        <Text style={styles.title}>{IMLocalized('Sign up with E-mail')}</Text>
+        <Text style={styles.title}>
+          {IMLocalized('Criar conta com e-mail')}
+        </Text>
 
         {renderSignupWithEmail()}
         {appConfig.isSMSAuthEnabled && (
           <>
             <Button
               containerStyle={styles.PhoneNumberContainer}
+              style={styles.PhoneNumberContainerText}
               onPress={() =>
                 props.navigation.navigate('Sms', {
                   isSigningUp: true,
@@ -247,7 +250,7 @@ const SignupScreen = (props) => {
                   authManager,
                 })
               }>
-              {IMLocalized('Sign up with phone number')}
+              {IMLocalized('Criar conta com número de telefone')}
             </Button>
           </>
         )}

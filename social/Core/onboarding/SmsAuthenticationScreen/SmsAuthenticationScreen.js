@@ -281,7 +281,7 @@ const SmsAuthenticationScreen = (props) => {
           offset={10}
           allowZeroAfterCountryCode
           textProps={{
-            placeholder: IMLocalized('Phone number'),
+            placeholder: IMLocalized('Número de telefone'),
             placeholderTextColor: '#aaaaaa',
           }}
         />
@@ -301,7 +301,7 @@ const SmsAuthenticationScreen = (props) => {
           containerStyle={styles.sendContainer}
           style={styles.sendText}
           onPress={() => onPressSend()}>
-          {IMLocalized('Send code')}
+          {IMLocalized('Próximo')}
         </Button>
       </>
     );
@@ -368,11 +368,14 @@ const SmsAuthenticationScreen = (props) => {
             }
           />
         </View>
-        <Text style={styles.title}>{IMLocalized('Sign up with phone')}</Text>
+        <Text style={styles.title}>
+          {IMLocalized('Criar conta com o telefone')}
+        </Text>
         {appConfig.smsSignupFields.map(renderInputField)}
         {isPhoneVisible ? renderPhoneInput() : renderCodeInput()}
         <Button
           containerStyle={styles.signWithEmailContainer}
+          style={styles.signWithEmailContainerText}
           onPress={() =>
             props.navigation.navigate('Signup', {
               appStyles,
@@ -380,7 +383,7 @@ const SmsAuthenticationScreen = (props) => {
               authManager,
             })
           }>
-          {IMLocalized('Sign up with E-mail')}
+          {IMLocalized('Criar conta com e-mail')}
         </Button>
       </>
     );
@@ -399,13 +402,16 @@ const SmsAuthenticationScreen = (props) => {
             }
           />
         </View>
-        <Text style={styles.title}>{IMLocalized('Your phone number')}</Text>
+        <Text style={styles.title}>
+          {IMLocalized('Seu número de telefone')}
+        </Text>
         <Text style={styles.orTextStyle}>
-          {IMLocalized('Input you phone number to continue')}
+          {IMLocalized('Digite seu número de telefone para continuar')}
         </Text>
         {isPhoneVisible ? renderPhoneInput() : renderCodeInput()}
         <Button
           containerStyle={styles.signWithEmailContainer}
+          style={styles.signWithEmailContainerText}
           onPress={() =>
             props.navigation.navigate('Login', {
               appStyles,
@@ -413,7 +419,7 @@ const SmsAuthenticationScreen = (props) => {
               authManager,
             })
           }>
-          {IMLocalized('Sign in with E-mail')}
+          {IMLocalized('Entrar com o e-mail')}
         </Button>
       </View>
     );

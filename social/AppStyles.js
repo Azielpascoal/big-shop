@@ -27,6 +27,7 @@ const lightColorSet = {
   mainButtonColor: '#e8f1fd',
   subButtonColor: '#eaecf0',
   tabColor: '#ffffff',
+  buttomLoginColor: '#5A5353',
 };
 
 const darkColorSet = {
@@ -160,6 +161,8 @@ const iconSet = {
   followers: require('../assets/icons/add-user.png'),
   profilePosts: require('../assets/icons/thumbnail.png'),
   openGift: require('../assets/icons/valentine-giftbox-open.png'),
+  emailIcon: require('../assets/icons/arroba.png'),
+  passwordIcon: require('../assets/icons/lock.png'),
 };
 
 const fontFamily = {

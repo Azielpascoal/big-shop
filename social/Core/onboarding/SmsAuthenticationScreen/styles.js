@@ -16,9 +16,9 @@ const dynamicStyles = (appStyles, colorScheme) => {
       backgroundColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
     },
     title: {
-      fontSize: 30,
-      fontWeight: 'bold',
-      color: appStyles.colorSet[colorScheme].mainTextColor,
+      fontSize: 25,
+      fontWeight: 'normal',
+      color: '#160226',
       marginBottom: 25,
       alignSelf: 'stretch',
       textAlign: 'left',
@@ -26,8 +26,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     sendContainer: {
       width: '80%',
-      backgroundColor: appStyles.colorSet[colorScheme].mainTextColor,
-      borderRadius: 25,
+      backgroundColor: '#5A5353',
+      borderRadius: 20,
       padding: 10,
       marginTop: 30,
       alignSelf: 'center',
@@ -59,7 +59,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       alignSelf: 'center',
       marginTop: 20,
       alignItems: 'center',
-      borderRadius: 25,
+      borderRadius: 10,
     },
 
     flagStyle: {
@@ -123,7 +123,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
     orTextStyle: {
       marginTop: 10,
       marginBottom: 10,
-      alignSelf: 'center',
+      marginRight: 40,
       textAlign: 'left',
       color: appStyles.colorSet[colorScheme].mainTextColor,
     },
@@ -153,6 +153,9 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     signWithEmailContainer: {
       marginTop: 20,
+    },
+    signWithEmailContainerText: {
+      color: '#160226',
     },
     tos: {
       marginTop: 40,

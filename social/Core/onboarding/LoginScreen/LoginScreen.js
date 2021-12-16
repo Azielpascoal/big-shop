@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 import Button from 'react-native-button';
 import appleAuth, {
@@ -153,80 +154,98 @@ const LoginScreen = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <KeyboardAwareScrollView
-        style={{ flex: 1, width: '100%' }}
-        keyboardShouldPersistTaps="always">
-        <TouchableOpacity
-          style={{ alignSelf: 'flex-start' }}
-          onPress={() => props.navigation.goBack()}>
-          <Image
-            style={appStyles.styleSet.backArrowStyle}
-            source={appStyles.iconSet.backArrow}
-          />
-        </TouchableOpacity>
-        <View style={styles.logo}>
-          <Image
-            style={styles.logoImage}
-            source={
-              props.delayedMode
-                ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.login
-            }
-          />
-        </View>
-        <Text style={styles.title}>{IMLocalized('Login')}</Text>
-        <TextInput
-          style={styles.InputContainer}
-          placeholder={IMLocalized('E-mail')}
-          keyboardType="email-address"
-          placeholderTextColor="#aaaaaa"
-          onChangeText={(text) => setEmail(text)}
-          value={email}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
-        />
-        <TextInput
-          style={styles.InputContainer}
-          placeholderTextColor="#aaaaaa"
-          secureTextEntry
-          placeholder={IMLocalized('Password')}
-          onChangeText={(text) => setPassword(text)}
-          value={password}
-          underlineColorAndroid="transparent"
-          autoCapitalize="none"
-        />
-        <View style={styles.forgotPasswordContainer}>
-          <Button
-            style={styles.forgotPasswordText}
-            onPress={() => onForgotPassword()}>
-            {IMLocalized('Forgot password?')}
-          </Button>
-        </View>
-        <Button
-          containerStyle={styles.loginContainer}
-          style={styles.loginText}
-          onPress={() => onPressLogin()}>
-          {IMLocalized('Log In')}
-        </Button>
-        {appConfig.isSMSAuthEnabled && (
-          <Button
-            containerStyle={styles.phoneNumberContainer}
-            onPress={() =>
-              props.navigation.navigate('Sms', {
-                isSigningUp: false,
-                appStyles,
-                appConfig,
-                authManager,
-              })
-            }>
-            {IMLocalized('Login with phone number')}
-          </Button>
-        )}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'android' ? 'padding:10' : 'height'}
+      style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <KeyboardAwareScrollView
+          style={{ flex: 1, width: '100%' }}
+          keyboardShouldPersistTaps="always">
+          <TouchableOpacity
+            style={{ alignSelf: 'flex-start' }}
+            onPress={() => props.navigation.goBack()}>
+            <Image
+              style={appStyles.styleSet.backArrowStyle}
+              source={appStyles.iconSet.backArrow}
+            />
+          </TouchableOpacity>
+          <View style={styles.logo}>
+            <Image
+              style={styles.logoImage}
+              source={
+                props.delayedMode
+                  ? appStyles.iconSet.delayedLogo
+                  : appStyles.undrawImageSet.login
+              }
+            />
+          </View>
+          <Text style={styles.title}>{IMLocalized('Login')}</Text>
+          <View style={styles.InputContainer}>
+            <Image
+              style={styles.ImageInput}
+              source={appStyles.iconSet.emailIcon}
+            />
+            <TextInput
+              style={styles.Input}
+              placeholder={IMLocalized('E-mail')}
+              keyboardType="email-address"
+              placeholderTextColor="#aaaaaa"
+              onChangeText={(text) => setEmail(text)}
+              value={email}
+              underlineColorAndroid="transparent"
+              autoCapitalize="none"
+            />
+          </View>
+          <View style={styles.InputContainer}>
+            <Image
+              style={styles.ImageInput}
+              source={appStyles.iconSet.passwordIcon}
+            />
+            <TextInput
+              style={styles.Input}
+              placeholderTextColor="#aaaaaa"
+              secureTextEntry
+              placeholder={IMLocalized('Senha')}
+              onChangeText={(text) => setPassword(text)}
+              value={password}
+              underlineColorAndroid="transparent"
+              autoCapitalize="none"
+            />
+          </View>
 
-        {loading && <TNActivityIndicator appStyles={appStyles} />}
-      </KeyboardAwareScrollView>
-    </View>
+          <View style={styles.forgotPasswordContainer}>
+            <Button
+              style={styles.forgotPasswordText}
+              onPress={() => onForgotPassword()}>
+              {IMLocalized('Esqueci minha senha !')}
+            </Button>
+          </View>
+          <Button
+            containerStyle={styles.loginContainer}
+            style={styles.loginText}
+            onPress={() => onPressLogin()}>
+            {IMLocalized('Entrar')}
+          </Button>
+          {appConfig.isSMSAuthEnabled && (
+            <Button
+              containerStyle={styles.phoneNumberContainer}
+              style={styles.phoneNumberContainerText}
+              onPress={() =>
+                props.navigation.navigate('Sms', {
+                  isSigningUp: false,
+                  appStyles,
+                  appConfig,
+                  authManager,
+                })
+              }>
+              {IMLocalized('Entrar com o número de telefone')}
+            </Button>
+          )}
+
+          {loading && <TNActivityIndicator appStyles={appStyles} />}
+        </KeyboardAwareScrollView>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 

@@ -17,14 +17,13 @@ const dynamicStyles = (appStyles, colorScheme) => {
       alignSelf: 'center',
     },
     title: {
-      fontSize: 30,
-      fontWeight: 'bold',
+      fontSize: 40,
       color: appStyles.colorSet[colorScheme].mainTextColor,
       marginTop: 25,
       marginBottom: 20,
       alignSelf: 'stretch',
       textAlign: 'left',
-      marginLeft: 30,
+      marginLeft: 40,
     },
     logo: {
       justifyContent: 'center',
@@ -38,8 +37,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     loginContainer: {
       width: '80%',
-      backgroundColor: appStyles.colorSet[colorScheme].mainTextColor,
-      borderRadius: 25,
+      backgroundColor: '#5A5353',
+      borderRadius: 20,
       padding: 10,
       marginTop: 30,
       alignSelf: 'center',
@@ -58,14 +57,24 @@ const dynamicStyles = (appStyles, colorScheme) => {
         appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
         TNColor('#e0e0e0'),
       ),
-      paddingLeft: 20,
       color: appStyles.colorSet[colorScheme].mainTextColor,
       width: '80%',
       alignSelf: 'center',
       marginTop: 20,
       alignItems: 'center',
-      borderRadius: 25,
+      flexDirection: 'row',
+      borderRadius: 10,
       textAlign: I18nManager.isRTL ? 'right' : 'left',
+    },
+    Input: {
+      width: '70%',
+      marginLeft: 5,
+    },
+    ImageInput: {
+      width: 20,
+      height: 20,
+      marginLeft: 5,
+      tintColor: appStyles.colorSet[colorScheme].grey3,
     },
 
     facebookContainer: {
@@ -94,6 +103,10 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     phoneNumberContainer: {
       marginTop: 20,
+      color: '#160226',
+    },
+    phoneNumberContainerText: {
+      color: '#160226',
     },
     forgotPasswordContainer: {
       width: '80%',
@@ -102,7 +115,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     forgotPasswordText: {
       fontSize: 14,
-      padding: 4,
+      padding: 8,
+      color: '#160226',
     },
   });
 };

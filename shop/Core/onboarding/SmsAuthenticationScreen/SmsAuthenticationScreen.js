@@ -471,7 +471,11 @@ const SmsAuthenticationScreen = (props) => {
         {isSigningUp && renderAsSignUpState()}
         {!isSigningUp && renderAsLoginState()}
         {isSigningUp && (
-          <TermsOfUseView tosLink={appConfig.tosLink}  privacyPolicyLink={appConfig.privacyPolicyLink}  style={styles.tos} />
+          <TermsOfUseView
+            tosLink={appConfig.tosLink}
+            privacyPolicyLink={appConfig.privacyPolicyLink}
+            style={styles.tos}
+          />
         )}
         <FirebaseRecaptchaVerifierModal
           ref={recaptchaVerifier}

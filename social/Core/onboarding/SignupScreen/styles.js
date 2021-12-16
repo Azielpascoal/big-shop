@@ -26,8 +26,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
     },
     title: {
       fontSize: 30,
-      fontWeight: 'bold',
-      color: appStyles.colorSet[colorScheme].headerTintColor,
+      fontWeight: 'normal',
+      color: '#160226',
       marginTop: 25,
       marginBottom: 30,
       alignSelf: 'stretch',
@@ -58,17 +58,18 @@ const dynamicStyles = (appStyles, colorScheme) => {
     InputContainer: {
       height: 42,
       borderWidth: 1,
-      borderColor: appStyles.colorSet[colorScheme].grey6,
+      borderColor: appStyles.colorSet[colorScheme].grey3,
       backgroundColor: modedColor(
-        appStyles.colorSet[colorScheme].grey0,
+        appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
         TNColor('#e0e0e0'),
       ),
-      paddingLeft: 20,
       color: appStyles.colorSet[colorScheme].mainTextColor,
       width: '80%',
       alignSelf: 'center',
       marginTop: 20,
+      paddingLeft: 20,
       alignItems: 'center',
+      flexDirection: 'row',
       borderRadius: 10,
       textAlign: I18nManager.isRTL ? 'right' : 'left',
     },
@@ -76,8 +77,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
     signupContainer: {
       alignSelf: 'center',
       width: appStyles.sizeSet.buttonWidth,
-      backgroundColor: appStyles.colorSet[colorScheme].headerTintColor,
-      borderRadius: appStyles.sizeSet.radius,
+      backgroundColor: '#5A5353',
+      borderRadius: 20,
       padding: 10,
       marginTop: 50,
     },
@@ -138,6 +139,9 @@ const dynamicStyles = (appStyles, colorScheme) => {
       marginTop: 10,
       marginBottom: 10,
       alignSelf: 'center',
+    },
+    PhoneNumberContainerText: {
+      color: '#160226',
     },
     smsText: {
       color: '#4267b2',
