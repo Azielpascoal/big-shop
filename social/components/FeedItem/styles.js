@@ -57,7 +57,7 @@ const dynamicStyles = (colorScheme) => {
       color: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       fontSize: 18,
       fontStyle: 'normal',
-      fontWeight: 'bold',
+      fontWeight: '600',
       lineHeight: 27,
       textShadowColor: AppStyles.colorSet[colorScheme].mainTextColor,
       textShadowOffset: { width: 0.1, height: 0.1 },

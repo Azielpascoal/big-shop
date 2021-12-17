@@ -4,12 +4,13 @@ import AppStyles from '../../../AppStyles';
 // const imageContainerWidth = 66;
 const imageWidth = Dimensions.get('window').width / 4.0;
 const userImageWidth = Dimensions.get('window').width / 5.0;
+const userImagePosition = Dimensions.get('window').width / 2;
 
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: 'blue',
+      backgroundColor: 'white',
       alignItems: 'center',
     },
     progressBar: {
@@ -21,13 +22,12 @@ const dynamicStyles = (colorScheme) => {
       borderTopColor: 'black',
     },
     subContainer: {
-      backgroundColor: 'red',
-      alignItems: 'flex-start',
+      backgroundColor: 'white',
       marginBottom: 10,
       // width: '100%',
     },
     userCardContainer: {
-      // width: '100%',
+      width: userImagePosition,
     },
     countItemsContainer: {
       justifyContent: 'flex-end',
@@ -55,7 +55,6 @@ const dynamicStyles = (colorScheme) => {
       width: imageWidth,
       height: imageWidth,
       borderWidth: 0,
-      margin: 18,
     },
     userImageMainContainer: {
       alignItems: 'center',
@@ -82,7 +81,7 @@ const dynamicStyles = (colorScheme) => {
       width: '92%',
       height: 40,
       borderRadius: 8,
-      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeForegroundColor,
+      backgroundColor: 'transparent',
       marginVertical: 9,
       justifyContent: 'center',
       alignItems: 'center',
@@ -106,11 +105,9 @@ const dynamicStyles = (colorScheme) => {
     },
 
     gridItemImage: {
-
       height: '100%',
       width: '100%',
       borderRadius: 25,
-
     },
     FriendsTitle: {
       color: AppStyles.colorSet[colorScheme].mainTextColor,
@@ -146,6 +143,32 @@ const dynamicStyles = (colorScheme) => {
       backgroundColor: AppStyles.colorSet[colorScheme].subButtonColor,
     },
     titleStyleColor: { color: AppStyles.colorSet[colorScheme].mainTextColor },
+
+    renderNavigationContainer: {
+      height: '100%',
+      width: '20%',
+      justifyContent: 'flex-end',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      backgroundColor: 'white',
+    },
+    iconImageStyle: {
+      tintColor: AppStyles.colorSet[colorScheme].mainTextColor,
+      width: 30,
+      height: 30,
+    },
+    iconContainerStyle: {
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      borderRadius: 50,
+      margin: 25,
+      shadowColor: 'black',
+      shadowOffset: { width: 50 },
+      elevation: 7,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 52,
+      height: 52,
+    },
   });
 };
 

@@ -14,7 +14,6 @@ import {
   IMContactUsScreen,
 } from '../Core/profile';
 import { IMAllFriendsScreen } from '../Core/socialgraph/friendships';
-import shopHomeScreen from '../../shop/screens/Shop/ShopScreen';
 
 const Stack = createStackNavigator();
 
