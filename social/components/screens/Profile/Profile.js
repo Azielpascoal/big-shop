@@ -10,7 +10,7 @@ import { useColorScheme } from 'react-native-appearance';
 import PropTypes from 'prop-types';
 import ActionSheet from 'react-native-actionsheet';
 import * as ImagePicker from 'expo-image-picker';
-import { TNStoryItem } from '../../../Core/truly-native';
+import { TNStoryItem, TNTouchableIcon } from '../../../Core/truly-native';
 import FeedMedia from '../../FeedItem/FeedMedia';
 import ProfileButton from './ProfileButton';
 import TNMediaViewerModal from '../../../Core/truly-native/TNMediaViewerModal';
@@ -18,8 +18,12 @@ import dynamicStyles from './styles';
 import { IMLocalized } from '../../../Core/localization/IMLocalization';
 import { TNEmptyStateView } from '../../../Core/truly-native';
 import AppStyles from '../../../AppStyles';
+import WishlistScreen from '../../../../shop/screens/WishlistScreen/WishlistScreen';
+import { Appearance } from 'react-native-appearance';
 
 function Profile(props) {
+  let COLOR_SCHEME = Appearance.getColorScheme();
+  let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
   const colorScheme = useColorScheme();
   const styles = dynamicStyles(colorScheme);
   const {
@@ -162,46 +166,37 @@ function Profile(props) {
     );
   };
 
-  const RenderNavigationOptions = () => {
+  RenderNavigationOptions = () => {
     return (
-      <View
-        style={{
-          backgroundColor: 'green',
-          height: '100%',
-          width: '20%',
-          justifyContent: 'flex-end',
-          flexDirection: 'row',
-        }}>
-
+      <View style={styles.renderNavigationContainer}>
         <View style={styles.countItemsContainer}>
-          <TouchableOpacity activeOpacity={1} style={[styles.countContainer]}>
-            {/* Add icon posts items here... */}
-            <Text style={styles.count}>{postCount}</Text>
-            <Text style={[styles.countTitle]}>
-              {postCount != 1 ? IMLocalized('Posts') : IMLocalized('Post')}
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={onFollowersButtonPress}
-            style={styles.countContainer}>
-            {/* Add icon followers here... */}
-            <Text style={styles.count}>{followersCount}</Text>
-            <Text style={styles.countTitle}>
-              {followersCount != 1
-                ? IMLocalized('Followers')
-                : IMLocalized('Follower')}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={onFollowingButtonPress}
-            style={styles.countContainer}>
-            {/* Add following icon here... */}
-            <Text style={styles.count}>{followingCount}</Text>
-            <Text style={styles.countTitle}>{IMLocalized('Following')}</Text>
-          </TouchableOpacity>
+          <View>
+            <TNTouchableIcon
+              imageStyle={styles.iconImageStyle}
+              iconSource={AppStyles.iconSet.followers}
+              onPress={onFollowersButtonPress}
+              appStyles={AppStyles}
+              containerStyle={styles.iconContainerStyle}
+            />
+          </View>
+          <View>
+            <TNTouchableIcon
+              imageStyle={styles.iconImageStyle}
+              iconSource={AppStyles.iconSet.followers}
+              onPress={onFollowingButtonPress}
+              appStyles={AppStyles}
+              containerStyle={styles.iconContainerStyle}
+            />
+          </View>
+          <View>
+            <TNTouchableIcon
+              imageStyle={styles.iconImageStyle}
+              iconSource={AppStyles.iconSet.openGift}
+              onPress={() => {}}
+              appStyles={AppStyles}
+              containerStyle={styles.iconContainerStyle}
+            />
+          </View>
           {/* Change profile buton to icon */}
           {/* Icon should be settings icon or message icon.. check on is displayed in ProfileScreen */}
           <ProfileButton
@@ -236,7 +231,6 @@ function Profile(props) {
     );
   };
   return (
-
     <View style={{ flex: 1, flexDirection: 'row' }}>
       <RenderNavigationOptions />
       <View style={styles.container}>
@@ -257,7 +251,6 @@ function Profile(props) {
             showsVerticalScrollIndicator={false}
           />
         )}
-
 
         <TNMediaViewerModal
           mediaItems={feedItems}

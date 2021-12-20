@@ -186,7 +186,7 @@ function Feed(props) {
           onScroll={onFeedScroll}
           showsVerticalScrollIndicator={false}
           getItemLayout={getItemLayout}
-          ListHeaderComponent={renderListHeader}
+          // ListHeaderComponent={renderListHeader}
           ListFooterComponent={renderListFooter}
           ListEmptyComponent={renderEmptyComponent}
           data={feed}

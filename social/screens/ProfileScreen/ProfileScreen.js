@@ -8,10 +8,11 @@ import { friendship } from '../../Core/socialgraph/friendships/api';
 import AppStyles from '../../AppStyles';
 import { IMLocalized } from '../../Core/localization/IMLocalization';
 import { setUserData } from '../../Core/onboarding/redux/auth';
-import { TNTouchableIcon } from '../../Core/truly-native';
+import { TNTouchableIcon, TNImage } from '../../Core/truly-native';
 import InstagramCloneConfig from '../../InstagramCloneConfig';
 import { FriendshipConstants } from '../../Core/socialgraph/friendships/constants';
 import { Appearance } from 'react-native-appearance';
+import AwesomeIcon from 'react-native-vector-icons/FontAwesome';
 
 import { FAB, shadow } from 'react-native-paper';
 
@@ -368,12 +369,12 @@ class ProfileScreen extends Component {
   render() {
     let currentProfile = this.otherUser || this.props.user;
     let postsCount = currentProfile.postsCount || 0;
-    let mainButtonTitle = IMLocalized('Profile Settings');
+    let mainButtonTitle = <AwesomeIcon name="gear" color="black" size={26} />;
     let COLOR_SCHEME = Appearance.getColorScheme();
     let currentTheme = AppStyles.navThemeConstants[COLOR_SCHEME];
 
     if (this.otherUser) {
-      mainButtonTitle = IMLocalized('Send Direct Message');
+      mainButtonTitle = <AwesomeIcon name="comment" color="black" size={26} />;
       if (this.state.shouldAddFriend) {
         mainButtonTitle = IMLocalized('Follow');
       }

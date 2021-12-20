@@ -26,6 +26,7 @@ import { IMNotificationScreen } from '../Core/notifications';
 import AppStyles from '../AppStyles';
 import InstagramCloneConfig from '../InstagramCloneConfig';
 import { IMLocalized } from '../Core/localization/IMLocalization';
+import WishlistScreen from '../../shop/screens/WishlistScreen/WishlistScreen';
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,11 @@ const InnerFeedNavigator = () => {
         name="Feed"
         component={FeedScreen}
       />
-      <Stack.Screen name="FeedProfile" component={ProfileScreen} />
+      <Stack.Screen
+        name="FeedProfile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="FeedDetailPost"
         component={DetailPostScreen}
@@ -182,7 +187,11 @@ const InnerDiscoverNavigator = () => {
 const InnerProfileNavigator = () => {
   return (
     <Stack.Navigator initialRouteName="Profile" headerMode="float">
-      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="ProfileNotification"
         component={IMNotificationScreen}
@@ -204,6 +213,7 @@ const InnerProfileNavigator = () => {
       <Stack.Screen name="ProfileAllFriends" component={IMAllFriendsScreen} />
       <Stack.Screen name="ProfilePostDetails" component={DetailPostScreen} />
       <Stack.Screen name="ProfileDetailPostProfile" component={ProfileScreen} />
+      <Stack.Screen name="Wishlist" component={WishlistScreen} />
     </Stack.Navigator>
   );
 };
