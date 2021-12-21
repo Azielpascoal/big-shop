@@ -134,6 +134,7 @@ function FeedItem(props) {
 
   const activeDot = () => <View style={styles.activeDot} />;
 
+  //sama
   const onMediaResize = ({ height }) => {
     const maxMediaHeight = Math.floor(AppStyles.WINDOW_HEIGHT * 0.7);
     if (shouldReSizeMedia && height) {
@@ -146,7 +147,7 @@ function FeedItem(props) {
       {...props}
       activeOpacity={0.9}
       onPress={didPressComment}
-      style={[styles.container, containerStyle]}>
+      style={[containerStyle]}>
       {item.postMedia && item.postMedia.length > 0 && (
         <View style={{ height: calcMediaHeight }}>
           <ViewportAwareSwiper
@@ -175,6 +176,10 @@ function FeedItem(props) {
                 onMediaPress={didPressMedia}
                 dynamicStyles={styles}
                 willBlur={willBlur}
+                mediaContainerStyle={{
+                  marginBottom: 9,
+                  backgroundColor: 'green',
+                }}
               />
             ))}
           </ViewportAwareSwiper>

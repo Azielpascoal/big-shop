@@ -1,22 +1,27 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../../AppStyles';
 
 const dynamicStyles = (appStyles, colorScheme) => {
   return StyleSheet.create({
     friendItemContainer: {
-      padding: 10,
-      alignItems: 'center',
-      flexDirection: 'row',
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      backgroundColor: 'white',
+      width: '100%',
+      height: '100%',
     },
     chatIconContainer: {
       flex: 6,
-      flexDirection: 'row',
-      alignItems: 'center',
     },
     photo: {
-      width: 48,
-      height: 48,
-      borderRadius: 24,
+      width: '95%',
+      height: '100%',
+    },
+    photoContainer: {
+      borderWidth: 1,
+      borderColor: 'blue',
+      borderRadius: 15,
+      height: 100,
+      width: '80%',
+      marginLeft: 15,
     },
     name: {
       padding: 10,
@@ -44,12 +49,11 @@ const dynamicStyles = (appStyles, colorScheme) => {
       alignItems: 'center',
     },
     followButton: {
-      width: 115,
+      width: '90%',
       height: 30,
       justifyContent: 'center',
       borderRadius: 6,
-      backgroundColor: appStyles.colorSet[colorScheme].mainThemeForegroundColor,
-      marginRight: 18,
+      backgroundColor: appStyles.colorSet[colorScheme].grey6,
       color: appStyles.colorSet[colorScheme].whiteSmoke,
     },
     followActionTitle: {
@@ -59,13 +63,14 @@ const dynamicStyles = (appStyles, colorScheme) => {
       fontWeight: '500',
       color: appStyles.colorSet[colorScheme].whiteSmoke,
     },
-    divider: {
-      bottom: 0,
-      left: 80,
-      right: 10,
-      position: 'absolute',
-      height: 0.5,
-      backgroundColor: appStyles.colorSet[colorScheme].hairlineColor,
+    gridItemContainer: {
+      height: Math.floor(AppStyles.WINDOW_HEIGHT * 0.25),
+      width: Math.floor(AppStyles.WINDOW_WIDTH * 0.3),
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      justifyContent: 'center',
+      alignItems: 'center',
+      overflow: 'hidden',
+      margin: 6,
     },
   });
 };

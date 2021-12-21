@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlatList, View } from 'react-native';
+import { useSelector, ReactReduxContext } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import { IMFriendItem } from '../..';
@@ -12,6 +13,7 @@ import {
   TNEmptyStateView,
   TNActivityIndicator,
 } from '../../../../truly-native';
+import SearchBar from '../../../../ui/SearchBar/SearchBar';
 
 function IMFriendsListComponent(props) {
   const {
@@ -30,6 +32,23 @@ function IMFriendsListComponent(props) {
   } = props;
   const colorScheme = useColorScheme();
   const styles = dynamicStyles(appStyles, colorScheme);
+  const reduxUsers = useSelector((state) => state.users.users);
+  const friendships = useSelector((state) => state.friends.friendships);
+
+  const [keyword, setKeyword] = useState('');
+
+  useEffect(() => {
+    if (reduxUsers) {
+      updateFilteredFriendships();
+    }
+  }, [reduxUsers]);
+
+  useEffect(() => {
+    if (friendships) {
+      updateFilteredFriendships();
+    }
+  }, [friendships]);
+
   const renderItem = ({ item }) => (
     <IMFriendItem
       onFriendItemPress={onFriendItemPress}
@@ -38,6 +57,34 @@ function IMFriendsListComponent(props) {
       displayActions={displayActions && item.user.id != viewer.id}
       appStyles={appStyles}
       followEnabled={followEnabled}
+    />
+  );
+
+  const updateFilteredFriendships = (filteringKeyword = keyword) => {
+    if (reduxUsers == null || friendships == null) {
+      return;
+    }
+    const filteredFriendships = filteredNonFriendshipsFromUsers(
+      filteringKeyword,
+      reduxUsers.filter((user) => user.id != currentUser?.id),
+      friendships,
+    ).splice(0, 25); // Show only 25 results at a time
+  };
+
+  const onSearchTextChange = (text) => {
+    setKeyword(text.trim());
+    updateFilteredFriendships(text.trim());
+  };
+
+  const onSearchClear = () => {
+    setKeyword('');
+  };
+
+  const renderListHeader = () => (
+    <SearchBar
+      onChangeText={onSearchTextChange}
+      onSearchClear={onSearchClear}
+      appStyles={appStyles}
     />
   );
 
@@ -50,12 +97,17 @@ function IMFriendsListComponent(props) {
           appStyles={appStyles}
         />
       )}
+      <SearchBar appStyles={appStyles} onChangeText={() => {}} />
       {friendsData && friendsData.length > 0 && (
-        <FlatList
-          data={friendsData}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.user.id}
-        />
+        <View style={{ flex: 1 }}>
+          <FlatList
+            numColumns={3}
+            horizontal={false}
+            data={friendsData}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.user.id}
+          />
+        </View>
       )}
       {!friendsData ||
         (friendsData.length <= 0 && (

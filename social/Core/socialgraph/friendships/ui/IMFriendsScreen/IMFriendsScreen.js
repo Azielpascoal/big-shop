@@ -14,7 +14,7 @@ import { useColorScheme } from 'react-native-appearance';
 
 const IMFriendsScreen = (props) => {
   const { store } = useContext(ReactReduxContext);
-  const { route } = props;
+  const { route, onSearchBarPress } = props;
   const appStyles = props.route.params.appStyles;
   let showDrawerMenuButton = route.params.showDrawerMenuButton;
   let headerTitle = route.params.friendsScreenTitle || IMLocalized('Friends');

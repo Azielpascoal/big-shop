@@ -59,7 +59,7 @@ const dynamicStyles = (colorScheme) => {
       fontStyle: 'normal',
       fontWeight: '600',
       lineHeight: 27,
-      textShadowColor: AppStyles.colorSet[colorScheme].mainTextColor,
+      textShadowColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       textShadowOffset: { width: 0.1, height: 0.1 },
       textShadowRadius: 0.5,
     },
@@ -106,7 +106,6 @@ const dynamicStyles = (colorScheme) => {
       height: '100%',
       width: '100%',
       backgroundColor: AppStyles.colorSet[colorScheme].whiteSmoke,
-      borderRadius: 25,
     },
     inactiveDot: {
       backgroundColor: 'rgba(255,255,255,.3)',
