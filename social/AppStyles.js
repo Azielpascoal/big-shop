@@ -155,6 +155,7 @@ const iconSet = {
   live: require('../assets/icons/live.png'),
   arrowUp: require('../assets/icons/arrowUp.png'),
   arrowDown: require('../assets/icons/arrowDown.png'),
+  arrowRight: require('../assets/icons/right-arrow.png'),
   chat: require('../assets/icons/chat.png'),
   plus: require('../assets/icons/plus.png'),
   settings: require('../assets/icons/settings.png'),
@@ -163,6 +164,7 @@ const iconSet = {
   openGift: require('../assets/icons/valentine-giftbox-open.png'),
   emailIcon: require('../assets/icons/arroba.png'),
   passwordIcon: require('../assets/icons/lock.png'),
+  arrowBack: require('../assets/icons/backArrow.png'),
 };
 
 const fontFamily = {

@@ -21,7 +21,7 @@ const IMProfileSettingsScreen = (props) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: IMLocalized('Settings'),
+      headerTitle: IMLocalized('tyyyfyf'),
       headerStyle: {
         backgroundColor: currentTheme.backgroundColor,
         borderBottomColor: currentTheme.hairlineColor,

@@ -67,6 +67,9 @@ const InnerFeedNavigator = () => {
       <Stack.Screen
         name="FeedProfileSettings"
         component={IMProfileSettingsScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <Stack.Screen name="FeedEditProfile" component={IMEditProfileScreen} />
       <Stack.Screen name="FeedAppSettings" component={IMUserSettingsScreen} />
@@ -199,6 +202,9 @@ const InnerProfileNavigator = () => {
       <Stack.Screen
         name="ProfileProfileSettings"
         component={IMProfileSettingsScreen}
+        options={{
+          headerShown: false,
+        }}
       />
       <Stack.Screen
         name="ProfileBlockedSettings"

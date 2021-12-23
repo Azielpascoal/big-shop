@@ -22,6 +22,7 @@ const MainStackNavigator = () => {
     <Stack.Navigator
       screenOptions={{
         headerBackTitleVisible: false,
+        headerShown: false,
         headerBackTitle: IMLocalized('Back'),
       }}
       initialRouteName="NavStack"
