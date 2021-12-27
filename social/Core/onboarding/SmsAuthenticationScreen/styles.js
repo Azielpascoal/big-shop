@@ -41,8 +41,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       marginTop: -40,
     },
     logoImage: {
-      width: 300,
-      height: 300,
+      width: 250,
+      height: 250,
       resizeMode: 'contain',
     },
     InputContainer: {
@@ -74,6 +74,7 @@ const dynamicStyles = (appStyles, colorScheme) => {
       borderLeftWidth: I18nManager.isRTL ? 0 : 1,
       borderRightWidth: I18nManager.isRTL ? 1 : 0,
       borderLeftWidth: 1,
+      marginLeft: 10,
       borderColor: appStyles.colorSet[colorScheme].grey3,
       height: 42,
       fontSize: 15,

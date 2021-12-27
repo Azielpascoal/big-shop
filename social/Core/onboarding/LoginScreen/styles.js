@@ -31,8 +31,8 @@ const dynamicStyles = (appStyles, colorScheme) => {
       marginTop: -40,
     },
     logoImage: {
-      width: 300,
-      height: 300,
+      width: 250,
+      height: 250,
       resizeMode: 'contain',
     },
     loginContainer: {

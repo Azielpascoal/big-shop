@@ -105,7 +105,8 @@ const imageSet = {
 
 const undrawImageSet = {
   sampleImage: require('../assets/undraw/sample2.png'),
-  login: require('../assets/undraw/login.png'),
+  login: require('../assets/undraw/loginimage7.png'),
+  phonesignin: require('../assets/undraw/loginimage6.png'),
   phonesignup: require('../assets/undraw/phonesignup.png'),
   emailsignup: require('../assets/undraw/emailsignup.png'),
 };

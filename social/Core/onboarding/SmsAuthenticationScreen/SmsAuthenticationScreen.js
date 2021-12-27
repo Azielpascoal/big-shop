@@ -398,7 +398,7 @@ const SmsAuthenticationScreen = (props) => {
             source={
               props.delayedMode
                 ? appStyles.iconSet.delayedLogo
-                : appStyles.undrawImageSet.login
+                : appStyles.undrawImageSet.phonesignin
             }
           />
         </View>
