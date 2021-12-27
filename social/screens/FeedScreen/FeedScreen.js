@@ -543,43 +543,41 @@ const FeedScreen = (props) => {
   });
 
   return (
-    <View style={styles.container}>
-      <Feed
-        loading={loading}
-        feed={feed}
-        displayStories={true}
-        onCommentPress={onCommentPress}
-        user={currentUser}
-        isCameraOpen={isCameraOpen}
-        onCameraClose={onCameraClose}
-        onUserItemPress={onUserItemPress}
-        onFeedUserItemPress={onFeedUserItemPress}
-        isMediaViewerOpen={isMediaViewerOpen}
-        feedItems={selectedFeedItems}
-        onMediaClose={onMediaClose}
-        onMediaPress={onMediaPress}
-        selectedMediaIndex={selectedMediaIndex}
-        stories={groupedStories || []}
-        userStories={myRecentStory}
-        onPostStory={onPostStory}
-        onReaction={onReaction}
-        handleOnEndReached={handleOnEndReached}
-        isFetching={isFetching}
-        shouldEmptyStories={shouldEmptyStories}
-        isStoryUpdating={isStoryUpdating}
-        onSharePost={onSharePost}
-        onDeletePost={onDeletePost}
-        onUserReport={onUserReport}
-        onFeedScroll={onFeedScroll}
-        shouldReSizeMedia={true}
-        willBlur={willBlur}
-        onEmptyStatePress={onEmptyStatePress}
-        isMediaComposerVisible={isMediaComposerVisible}
-        onMediaComposerDismiss={toggleMediaComposer}
-        onShareMediaPost={onShareMediaPost}
-        navigation={props.navigation}
-      />
-    </View>
+    <Feed
+      loading={loading}
+      feed={feed}
+      displayStories={true}
+      onCommentPress={onCommentPress}
+      user={currentUser}
+      isCameraOpen={isCameraOpen}
+      onCameraClose={onCameraClose}
+      onUserItemPress={onUserItemPress}
+      onFeedUserItemPress={onFeedUserItemPress}
+      isMediaViewerOpen={isMediaViewerOpen}
+      feedItems={selectedFeedItems}
+      onMediaClose={onMediaClose}
+      onMediaPress={onMediaPress}
+      selectedMediaIndex={selectedMediaIndex}
+      stories={groupedStories || []}
+      userStories={myRecentStory}
+      onPostStory={onPostStory}
+      onReaction={onReaction}
+      handleOnEndReached={handleOnEndReached}
+      isFetching={isFetching}
+      shouldEmptyStories={shouldEmptyStories}
+      isStoryUpdating={isStoryUpdating}
+      onSharePost={onSharePost}
+      onDeletePost={onDeletePost}
+      onUserReport={onUserReport}
+      onFeedScroll={onFeedScroll}
+      shouldReSizeMedia={true}
+      willBlur={willBlur}
+      onEmptyStatePress={onEmptyStatePress}
+      isMediaComposerVisible={isMediaComposerVisible}
+      onMediaComposerDismiss={toggleMediaComposer}
+      onShareMediaPost={onShareMediaPost}
+      navigation={props.navigation}
+    />
   );
 };
 

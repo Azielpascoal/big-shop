@@ -67,7 +67,7 @@ function DetailsPostViewer(props) {
   moreArray.push(IMLocalized('Cancel'));
 
   const onMediaResize = ({ height }) => {
-    const maxMediaHeight = Math.floor(AppStyles.WINDOW_HEIGHT * 0.55);
+    const maxMediaHeight = Math.floor(AppStyles.WINDOW_HEIGHT * 0.7);
     if (shouldReSizeMedia && height) {
       setCalcMediaHeight(height > maxMediaHeight ? maxMediaHeight : height);
     }

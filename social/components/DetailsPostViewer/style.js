@@ -5,7 +5,8 @@ const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
       position: 'absolute',
-      marginTop: 450,
+      bottom: 0,
+      right: '35%',
       alignSelf: 'center',
       flexDirection: 'row',
     },
@@ -14,7 +15,7 @@ const dynamicStyles = (colorScheme) => {
       alignSelf: 'center',
       height: AppStyles.WINDOW_HEIGHT * 0.25,
       borderRadius: 25,
-      backgroundColor: '#ddd',
+      backgroundColor: 'green',
       marginLeft: -30,
       borderColor: '#fff',
       borderWidth: 2,

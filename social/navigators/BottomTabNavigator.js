@@ -1,7 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { InnerFeedNavigator } from './InnerStackNavigators';
+import {
+  InnerFeedNavigator,
+  InnerFriendsSearchNavigator,
+  InnerDiscoverNavigator,
+} from './InnerStackNavigators';
 import { View, Image } from 'react-native';
 import CreatePostScreen from '../screens/CreatePostScreen/CreatePostScreen';
 import GiftsScreen from '../screens/GiftsScreen/GiftsScreen';
@@ -81,7 +85,33 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
-      {/* <BottomTab.Screen name="Discover" component={InnerDiscoverNavigator} /> */}
+      {/* <BottomTab.Screen
+        name="Friends"
+        component={InnerFriendsSearchNavigator}
+        
+      /> */}
+      <BottomTab.Screen
+        name="Discover"
+        component={InnerDiscoverNavigator}
+        options={{
+          tabBarLabel: 'Friends',
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={[
+                styles.tabBarIconStyles,
+                { backgroundColor: focused ? '#4852D91A' : '#ffffff' },
+              ]}>
+              <Image
+                source={AppStyles.iconSet.friendsFilled}
+                style={[
+                  styles.tabNavigatorIcon,
+                  { tintColor: focused ? '#4852D9' : '#999999' },
+                ]}
+              />
+            </View>
+          ),
+        }}
+      />
       {/* <BottomTab.Screen name="Chat" component={InnerChatSearchNavigator} /> */}
       {/* <BottomTab.Screen
         name="CreatePost"

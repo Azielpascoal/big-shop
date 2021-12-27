@@ -61,22 +61,23 @@ const IMFriendItem = memo((props) => {
   };
 
   return (
-    <TouchableOpacity
-      activeOpacity={0.9}
-      onPress={() => onFriendItemPress && onFriendItemPress(item)}
-      style={styles.friendItemContainer}>
-      <View style={styles.chatIconContainer}>
-        <IMConversationIconView
-          style={styles.photo}
-          imageStyle={styles.photo}
-          participants={[user]}
-          appStyles={appStyles}
-        />
+    <View style={styles.gridItemContainer}>
+      <TouchableOpacity
+        activeOpacity={0.9}
+        onPress={() => onFriendItemPress && onFriendItemPress(item)}
+        style={styles.friendItemContainer}>
+        <View style={styles.chatIconContainer}>
+          <IMConversationIconView
+            style={styles.photo}
+            imageStyle={styles.photoContainer}
+            participants={[user]}
+            appStyles={appStyles}
+          />
+        </View>
         {name && <Text style={styles.name}>{name}</Text>}
-      </View>
-      {renderActions(displayActions, actionTitle)}
-      <View style={styles.divider} />
-    </TouchableOpacity>
+        {renderActions(displayActions, actionTitle)}
+      </TouchableOpacity>
+    </View>
   );
 });
 

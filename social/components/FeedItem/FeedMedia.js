@@ -7,13 +7,13 @@ import {
 } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Video } from 'expo-av';
-// import Image from 'react-native-image-progress';
+import Image from 'react-native-image-progress';
 import CircleSnail from 'react-native-progress/CircleSnail';
 import { TNTouchableIcon } from '../../Core/truly-native';
 import AppStyles from '../../AppStyles';
 import FastImage from 'react-native-fast-image';
 
-const Image = FastImage;
+//const Image = FastImage;
 const maxMediaWidth = AppStyles.WINDOW_WIDTH;
 
 const { width } = Dimensions.get('window');
@@ -219,8 +219,7 @@ export default function FeedMedia({
           onLoad={(evt) => {
             if (onMediaResize) {
               onMediaResize({
-                height:
-                  (evt.nativeEvent.height / evt.nativeEvent.width) * width,
+                height: AppStyles.WINDOW_HEIGHT * 0.7,
               });
             }
           }}
