@@ -30,6 +30,14 @@ const dynamicStyles = (colorScheme) => {
       marginLeft: 7,
       marginBottom: 7,
     },
+    flatlist: {
+      width: '90%',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
   });
 };
 

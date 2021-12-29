@@ -50,7 +50,7 @@ function Home(props) {
         onCategoryPress={props.onCategoryPress}
       />
       <NewArrivals
-        title={IMLocalized('New Arrivals')}
+        title={IMLocalized('')}
         dataSource={newArrivals}
         onCardPress={props.onCardPress}
         navigation={navigation}

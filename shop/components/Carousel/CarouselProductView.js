@@ -22,6 +22,7 @@ function CarouselProductView(props) {
   return (
     <TouchableOpacity
       activeOpacity={Platform.OS === 'android' ? 1 : 0.7}
+      style={[styles.container]}
       onPress={onCardPress}>
       <View style={styles.carouselProductViewContainer}>
         <Image

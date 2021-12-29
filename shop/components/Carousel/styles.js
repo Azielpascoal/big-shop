@@ -8,10 +8,15 @@ const carouselHeightMultiplier = 1.52;
 
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
+    container: {
+      width: width - 115,
+      alignSelf: 'center',
+      marginLeft: 10,
+    },
     carouselProductViewContainer: {
-      width: width - 15,
-      height: carouselHeightMultiplier * width - 60,
-      borderRadius: 7,
+      width: width - 115,
+      height: carouselHeightMultiplier * width - 170,
+      borderRadius: 15,
       justifyContent: 'center',
       alignItems: 'center',
       overflow: 'visible',
@@ -21,28 +26,27 @@ const dynamicStyles = (colorScheme) => {
         height: 4,
       },
       shadowOpacity: 0.36,
-      shadowRadius: 7,
-      margin: 10,
-      elevation: 11,
+      shadowRadius: 15,
+      elevation: 9,
     },
     carouselProductViewImage: {
       width: '100%',
       height: '100%',
-      borderRadius: 7,
+      borderRadius: 15,
     },
     carouselProductViewTitle: {
-      textAlign: 'center',
       color: AppStyles.colorSet[colorScheme].mainTextColor,
       fontSize: 14,
       fontFamily: AppStyles.fontFamily.semiBoldFont,
-      marginTop: 17,
+      marginTop: 10,
+      marginLeft: 5,
     },
     carouselProductViewPrice: {
-      textAlign: 'center',
       color: AppStyles.colorSet[colorScheme].mainSubtextColor,
       fontSize: 14,
       fontFamily: AppStyles.fontFamily.mediumFont,
       marginTop: 4,
+      marginLeft: 5,
     },
   });
 };

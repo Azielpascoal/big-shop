@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import CarouselView from '../Carousel/CarouselView';
 import CarouselProductView from '../Carousel/CarouselProductView';
 import { useColorScheme } from 'react-native-appearance';
@@ -25,7 +25,13 @@ function NewArrivals(props) {
   return (
     <View style={styles.carouselContainer}>
       <Text style={styles.carouselTitleText}>{title}</Text>
-      <CarouselView dataSource={dataSource} renderItem={renderItem} />
+      {/* <CarouselView dataSource={dataSource} renderItem={renderItem} /> */}
+      <FlatList
+        contentContainerStyle={styles.flatlist}
+        data={dataSource}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 }
