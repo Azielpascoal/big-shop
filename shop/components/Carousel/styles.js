@@ -27,7 +27,7 @@ const dynamicStyles = (colorScheme) => {
       },
       shadowOpacity: 0.36,
       shadowRadius: 15,
-      elevation: 9,
+      elevation: 5,
     },
     carouselProductViewImage: {
       width: '100%',

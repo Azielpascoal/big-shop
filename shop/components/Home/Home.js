@@ -6,6 +6,7 @@ import { useColorScheme } from 'react-native-appearance';
 import Categories from './Categories';
 import NewArrivals from './NewArrivals';
 import Featured from './Featured';
+import SearchInput from '../SearchInput/searchinput';
 import BestSellers from './BestSellers';
 import ProductDetailModal from '../Modals/ProductDetailModal/ProductDetailModal';
 import { IMLocalized } from '../../Core/localization/IMLocalization';
@@ -44,6 +45,7 @@ function Home(props) {
 
   return (
     <ScrollView style={styles.container}>
+      <SearchInput />
       <Categories
         navigation={navigation}
         categories={categories}
