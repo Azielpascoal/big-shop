@@ -45,7 +45,7 @@ function Home(props) {
 
   return (
     <ScrollView style={styles.container}>
-      <SearchInput />
+      <SearchInput placeholder="Pesquise aqui !" />
       <Categories
         navigation={navigation}
         categories={categories}

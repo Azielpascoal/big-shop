@@ -2,18 +2,30 @@ import { Dimensions } from 'react-native';
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../AppStyles';
 
-const { width, height } = Dimensions.get('window');
+// const { width, height } = Dimensions.get('window');
 
 const featuredTextPadding = 3;
-
+const { width: screenWidth } = Dimensions.get('window');
+const width = screenWidth * 0.7;
+const carouselHeightMultiplier = 1.52;
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     productCardConainer: {
-      width: 0.35 * width,
-      height: 0.32 * height,
-      margin: 10,
+      width: width - 115,
+      height: carouselHeightMultiplier * width - 170,
+      borderRadius: 15,
+      marginLeft: 5,
+      justifyContent: 'center',
+      alignItems: 'center',
       overflow: 'visible',
-      marginLeft: 7,
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.36,
+      shadowRadius: 15,
+      elevation: 5,
     },
     productCardImageConainer: {
       width: '100%',

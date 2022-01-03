@@ -14,7 +14,7 @@ const dynamicStyles = (colorScheme) => {
     inputArea: {
       width: '75%',
       height: 40,
-      borderRadius: 15,
+      borderRadius: 12,
       borderWidth: 1,
       borderColor: AppStyles.colorSet[colorScheme].hairlineColor,
       flexDirection: 'row',
@@ -31,15 +31,26 @@ const dynamicStyles = (colorScheme) => {
       marginLeft: 10,
     },
     filterMenuArea: {
-      width: 35,
-      height: 35,
+      width: 40,
+      height: 40,
       marginLeft: 10,
       borderRadius: 9,
-      backgroundColor: '#f00',
+      backgroundColor: '#fff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: {
+        width: 0,
+        height: 4,
+      },
+      shadowOpacity: 0.36,
+      shadowRadius: 15,
+      elevation: 5,
     },
     filterMenuAreaIcon: {
-      width: '100%',
-      height: '100%',
+      width: 25,
+      height: 25,
+      tintColor: '#000',
     },
   });
 };

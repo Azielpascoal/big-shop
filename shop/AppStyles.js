@@ -124,6 +124,8 @@ const iconSet = {
   mastercard: require('../assets/icons/mastercard.png'),
   unionpay: require('../assets/icons/unionpay.png'),
   backArrow: require('../assets/icons/backArrow.png'),
+  searchIcon: require('../assets/icons/search.png'),
+  menuIcon: require('../assets/icons/menu-hamburger.png'),
 };
 
 const fontFamily = {

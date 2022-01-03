@@ -14,17 +14,27 @@ import AppStyles from '../../AppStyles';
 
 function SearchInput(props) {
   const route = useRoute();
+  const { onSearch, value, onChangeText, placeholder, onButtomPress } = props;
   const colorScheme = useColorScheme();
   const styles = dynamicStyles(colorScheme);
   return (
     <View style={styles.container}>
       <View style={styles.inputArea}>
-        <Image style={styles.inputIcon} />
-        <TextInput style={styles.inputText} placeholder="write here !" />
+        <Image style={styles.inputIcon} source={AppStyles.iconSet.searchIcon} />
+        <TextInput
+          style={styles.inputText}
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChangeText}
+          onBlur={onSearch}
+        />
       </View>
       <View style={styles.filterMenuArea}>
-        <TouchableOpacity>
-          <Image style={styles.filterMenuAreaIcon} />
+        <TouchableOpacity onPress={onButtomPress}>
+          <Image
+            style={styles.filterMenuAreaIcon}
+            source={AppStyles.iconSet.menuIcon}
+          />
         </TouchableOpacity>
       </View>
     </View>

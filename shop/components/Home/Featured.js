@@ -24,10 +24,11 @@ function Featured(props) {
     <View style={styles.unitContainer}>
       <Text style={styles.unitTitle}>{title}</Text>
       <FlatList
-        showsHorizontalScrollIndicator={false}
+        // showsHorizontalScrollIndicator={false}
         data={featuredProducts}
+        contentContainerStyle={styles.flatlist}
         keyExtractor={(item, index) => index.toString()}
-        horizontal={true}
+        // horizontal={true}
         extraData={featuredProducts}
         renderItem={renderItem}
       />
