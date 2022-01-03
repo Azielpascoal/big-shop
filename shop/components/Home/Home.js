@@ -52,7 +52,7 @@ function Home(props) {
         onCategoryPress={props.onCategoryPress}
       />
       <NewArrivals
-        title={IMLocalized('')}
+        title={IMLocalized('Create Your Style')}
         dataSource={newArrivals}
         onCardPress={props.onCardPress}
         navigation={navigation}

@@ -11,11 +11,12 @@ const dynamicStyles = (colorScheme) => {
       marginTop: 18,
     },
     carouselTitleText: {
-      textAlign: 'center',
+      textAlign: 'left',
       fontSize: 20,
       fontFamily: AppStyles.fontFamily.semiBoldFont,
       color: AppStyles.colorSet[colorScheme].mainTextColor,
       marginTop: 10,
+      marginLeft: 20,
       marginBottom: 12,
     },
     unitContainer: {
@@ -37,6 +38,9 @@ const dynamicStyles = (colorScheme) => {
       alignSelf: 'center',
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    containerCategory: {
+      width: '90%',
     },
   });
 };

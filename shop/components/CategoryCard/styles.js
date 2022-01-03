@@ -7,8 +7,6 @@ const { width, height } = Dimensions.get('window');
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     categoryImageContainer: {
-      width: '90%',
-      flex: 1,
       alignItems: 'stretch',
       justifyContent: 'center',
       // width: width * 0.67,

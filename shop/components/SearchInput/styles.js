@@ -4,11 +4,12 @@ import AppStyles from '../../AppStyles';
 const dynamicStyles = (colorScheme) => {
   return new StyleSheet.create({
     container: {
-      width: '92%',
+      width: '90%',
       alignSelf: 'center',
       flexDirection: 'row',
       marginTop: 20,
       alignItems: 'center',
+      marginTop: 50,
       justifyContent: 'center',
     },
     inputArea: {

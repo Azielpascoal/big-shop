@@ -16,6 +16,7 @@ function Categories(props) {
   return (
     <FlatList
       showsHorizontalScrollIndicator={false}
+      style={{ width: '90%', alignSelf: 'center', marginTop: 20 }}
       data={categories}
       keyExtractor={(item, index) => index.toString()}
       horizontal={true}

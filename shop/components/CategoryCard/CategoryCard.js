@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ImageBackground, TouchableOpacity, Text } from 'react-native';
+import { ImageBackground, TouchableOpacity, Text, View } from 'react-native';
 import { useColorScheme } from 'react-native-appearance';
 import dynamicStyles from './styles';
 
@@ -12,7 +12,7 @@ function CategoryCard(props) {
 
   return (
     <ImageBackground
-      source={{ uri: item.photo }}
+      // source={{ uri: item.photo }}
       style={[styles.categoryImageContainer, imageContainerStyle]}
       imageStyle={styles.categoryImage}
       resizeMode="cover">
