@@ -53,6 +53,7 @@ const DrawerNavigator = () => {
             ),
           headerTitle: getDrawerScreenTitle(route.name),
           headerTitleAlign: 'center',
+          headerShown: false,
         };
       }}>
       <Drawer.Screen
