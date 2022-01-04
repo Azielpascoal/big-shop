@@ -7,6 +7,11 @@ const dynamicStyles = (colorScheme) => {
       backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
       flex: 1,
     },
+    container1: {
+      backgroundColor: AppStyles.colorSet[colorScheme].mainThemeBackgroundColor,
+      flex: 1,
+      flexDirection: 'row',
+    },
     carouselContainer: {
       marginTop: 18,
     },

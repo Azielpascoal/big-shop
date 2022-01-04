@@ -12,7 +12,6 @@ const dynamicStyles = (colorScheme) => {
       // width: width * 0.67,
       // height: height * 0.082,
       margin: 5,
-      marginTop: 10,
       marginLeft: 7,
     },
     categoryImage: {
