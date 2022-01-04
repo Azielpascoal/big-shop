@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { TNStoryItem, TNTouchableIcon } from '../../../../../Core/truly-native';
 import { useSelector } from 'react-redux';
 import { authManager } from '../../../../onboarding/utils/api';
@@ -128,7 +128,7 @@ function IMProfileSettings(props) {
   );
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.settingsBack}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -185,7 +185,7 @@ function IMProfileSettings(props) {
         })}
         {renderSettingsType({ type: 'Logout' })}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
